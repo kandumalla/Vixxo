@@ -65,7 +65,7 @@ public class SiteHistoryPOF {
 
 	public void SRDetailAssertion() {
 
-		Assert.assertTrue(driver.getCurrentUrl().contains("SRdetail"), "Taken to incorrect page");
+		Assert.assertTrue(Utilities.driver.getCurrentUrl().contains("SRdetail"), "Taken to incorrect page");
 	}
 
 	public void SRDetailConfirmation() {
