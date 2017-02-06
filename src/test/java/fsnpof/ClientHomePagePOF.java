@@ -84,10 +84,24 @@ Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page T
 	WebElement CompletedRequestsbtn;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl00_HyperlinkCatDet")
 	WebElement ToBeBilled;
-	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl01_HyperlinkCatDet")
+	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl01_lbCompleted_Billed")
 	WebElement Billed;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl02_HyperlinkCatDet")
 	WebElement Other;
+	@FindBy(id="frmCapexPopup")
+	WebElement BilledcapexFrame;
+	@FindBy(xpath="//*[@id='form1']/div[3]/input[3]")
+	WebElement Okbtncapex;
+	
+	public void ClearBilledCapexFrame (){
+	Utilities.driver.switchTo().frame(BilledcapexFrame);
+	Okbtncapex.click();
+    Utilities.driver.switchTo().defaultContent();
+		
+	}
+	
+
+
 
 	// RFPs in Progress
 	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl03_ImageExpCol")
@@ -215,9 +229,7 @@ Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page T
 		NeedsApprovalSRDecline.click();
 	}
 
-	public void UnderReviewStatus() {
-
-	}
+	
 
 	public void UnderReviewassert() {
 		Assert.assertTrue(CallStatus.getText().contains("Under FSN Review"),
@@ -261,27 +273,7 @@ Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page T
 				"Approval Status selected does not match approval status on confirmatikon page");
 
 	}
-	/*
-	 * SelectSitebox.
-	 * sendKeys("(0047) PetSmart - 575 Rohnert Park Expy W Rohnert Park, CA ");
-	 * Thread.sleep(3000); SelectSitebox.sendKeys(Keys.ARROW_DOWN,Keys.ENTER);
-	 * Select siteareadd= new Select(SiteAreaDropDown); Thread.sleep(3000);
-	 * siteareadd.selectByVisibleText("Core Store"); Select subsiteareadd= new
-	 * Select(SubSiteAreaDropDown); Thread.sleep(3000);
-	 * subsiteareadd.selectByVisibleText("Sales floor"); Select typeofservicedd=
-	 * new Select(TypeofService); Thread.sleep(3000);
-	 * typeofservicedd.selectByVisibleText("Automatic Doors"); Select reasondd=
-	 * new Select(ReasonForCall); Thread.sleep(3000);
-	 * reasondd.selectByVisibleText("Off Track");
-	 * RequesterInfo.sendKeys("deonte.mohamed@vixxo.com");
-	 * DetailedDescription.sendKeys("brokenalarm"); Submitbtn.click();
-	 * wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
-	 * SRConfirmationLink.click(); String urlsrconfirmation=
-	 * driver.getCurrentUrl(); Assert.assertTrue(urlsrconfirmation.contains(
-	 * "http://www.ourfsn.com/myfsn/SRdetail.aspx?"),
-	 * "SR processing unsuccessful");
-	 */
-
+	
 	// Completed Requests Methods
 
 	public void completedrequestsclick() {

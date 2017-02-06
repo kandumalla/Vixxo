@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import com.thoughtworks.selenium.Wait;
 import org.openqa.selenium.interactions.Actions;
+
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -89,12 +91,11 @@ public class SRCreate {
 
 	@FindBy(id = "//*[@id='divLOSShortdescContent']/div/input")
 	WebElement OKBtnSRWarrentyNotification;
-	
-	@FindBy(xpath="//*[text()='Yes']")
-	WebElement DSAnswerSafetyIssueY;
-	//*[contains=@value, 'Yes']
-	//*[text()='Yes']
 
+	@FindBy(xpath = "//*[text()='Yes']")
+	WebElement DSAnswerSafetyIssueY;
+	// *[contains=@value, 'Yes']
+	// *[text()='Yes']
 
 	// ctl00_ContentPlaceHolder1_SRNumberLabel
 
@@ -128,6 +129,7 @@ public class SRCreate {
 	public void NavigateToSRCreateWithbtn() {
 		SRCreatebtn.click();
 	}
+
 	public void SiteSelect() throws InterruptedException {
 		Thread.sleep(2000);
 		SelectSitebox.sendKeys("99999");
@@ -136,32 +138,69 @@ public class SRCreate {
 		Thread.sleep(2000);
 	}
 
+	public void SiteSelectSpecific() throws InterruptedException {
+
+		SelectSitebox.clear();
+		SelectSitebox.sendKeys("0059");
+		Thread.sleep(2000);
+		SelectSitebox.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+		Thread.sleep(2000);
+	}
+
+	public void MyFSNHelpPageConfirmation() {
+		Set<String> WindowHandles=Utilities.driver.getWindowHandles();
+		String ActualUrl= Utilities.driver.getCurrentUrl();
+		Utilities.driver.switchTo().window("");
+		Assert.assertTrue(Utilities.driver.getCurrentUrl().contains("help"),"Expected Help page, currently on" + ActualUrl);
+	}
+
+	public void SiteAreaNotAvailableCheck(){
+	Assert.assertTrue(!SiteAreaDropDown.isDisplayed(),("Site Area should not be displayed"));
+	}
+	public void SiteAreaAvailableCheck(){
+		Assert.assertTrue(SiteAreaDropDown.isDisplayed(),("Site Area should be displayed"));
+	}
+
+	public void switchtocurrentwindow() {
+		Utilities.driver.switchTo().defaultContent();
+	}
+
+	public void closecurrentwidnow() {
+		Utilities.driver.close();
+
+	}
+
 	public void SelectArea() throws InterruptedException {
 		Select siteareadd = new Select(SiteAreaDropDown);
+		Thread.sleep(2000);
 		siteareadd.selectByVisibleText("Core Store");
 		Thread.sleep(2000);
 	}
 
 	public void SelectSubArea() throws InterruptedException {
-		Select subsiteareadd = new Select(SubSiteAreaDropDown);;
+		Select subsiteareadd = new Select(SubSiteAreaDropDown);
+		Thread.sleep(2000);
 		subsiteareadd.selectByVisibleText("Sales floor");
 		Thread.sleep(2000);
+
 	}
 
 	public void SelectTypeofService() throws InterruptedException {
 		Select typeofservicedd = new Select(TypeofService);
+		Thread.sleep(2000);
 		typeofservicedd.selectByVisibleText("Windows");
 		Thread.sleep(3000);
 	}
 
 	public void SelectReasonForCall() throws InterruptedException {
 		Select reasondd = new Select(ReasonForCall);
+		Thread.sleep(2000);
 		reasondd.selectByVisibleText("Leaking");
 		Thread.sleep(2000);
-		
+
 	}
-	
-	public void DSQuestionAnswer1() throws InterruptedException{
+
+	public void DSQuestionAnswer1() throws InterruptedException {
 		DSAnswerSafetyIssueY.click();
 		Thread.sleep(2000);
 	}
@@ -177,23 +216,22 @@ public class SRCreate {
 	}
 
 	public void SubmitSR() throws InterruptedException {
-	
-		Submitbtn.click();
-		
-		}
 
-	public void SRCheck (){
+		Submitbtn.click();
+
+	}
+
+	public void SRCheck() {
 		wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
 		SRConfirmationLink.click();
 		String urlsrconfirmation = Utilities.driver.getCurrentUrl();
-		
+
 		if (urlsrconfirmation.contains("SRdetail.aspx?")) {
 			System.out.println("**SERVICE REQUEST CREATION SUCCESSFUL**");
 
 		} else if (!SRSubmissionTimeOutMessage.isDisplayed()) {
 			Assert.fail("ERROR SERVICE REQUEST PROCESSING TOOK MORE THAN 60 SECONDS WITH NO TIME OUT MESSAGE");
 		}
-		
 
 	}
 
@@ -408,8 +446,6 @@ public class SRCreate {
 		ExpectedConditions.alertIsPresent();
 
 	}
-
-	
 
 	public void Sr() throws InterruptedException {
 		Thread.sleep(3000);

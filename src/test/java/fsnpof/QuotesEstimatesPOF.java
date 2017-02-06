@@ -22,7 +22,7 @@ public class QuotesEstimatesPOF {
 		WebElement UnderReview;
 		@FindBy (id="ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl01_RepeaterReqCatDetails_ctl01_HyperlinkCatDet")
 		WebElement NeedsApprovalQuote;
-		@FindBy (id="ctl00_ContentPlaceHolder1_rptrSRData_ctl03_hlSR#")
+		@FindBy (id="ctl00_ContentPlaceHolder1_rptrSRData_ctl01_hlSR#")
 		WebElement NeedsApprovalSRApprove;
 		@FindBy (id="ctl00_ContentPlaceHolder1_rptrSRData_ctl04_hlSR#")
 		WebElement NeedsApprovalSRDecline;
