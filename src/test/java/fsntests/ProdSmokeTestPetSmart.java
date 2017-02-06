@@ -80,17 +80,17 @@ public class ProdSmokeTestPetSmart {
 		
 
 	}
-/*
+
 	@AfterMethod
 	public void afterTest() throws InterruptedException {
 	TopMenu.Logout();
 	
 	
-	}*/
+	}
 
 	@AfterSuite
 	public void afterSuite() {
-	//Utilities.driver.quit();
+	Utilities.driver.quit();
 	}
 
 }
