@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class SiteHistoryPOF {
@@ -43,7 +44,8 @@ public class SiteHistoryPOF {
 	}
 
 	public void SearchSiteTextBoxinput() throws InterruptedException {
-		Thread.sleep(3000);
+		WebDriverWait wait = new WebDriverWait(Utilities.driver,60);
+		wait.until(ExpectedConditions.elementToBeClickable(SearchSiteTextBox));
 		SearchSiteTextBox.sendKeys("0047");
 		Thread.sleep(3000);
 		SearchSiteTextBox.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
