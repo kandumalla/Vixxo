@@ -83,10 +83,12 @@ Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page T
 	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_ImageExpCol")
 	WebElement CompletedRequestsbtn;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl00_HyperlinkCatDet")
+	WebElement WebDocumentsinTransit;
+	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl01_HyperlinkCatDet")
 	WebElement ToBeBilled;
-	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl01_lbCompleted_Billed")
+	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl02_lbCompleted_Billed")
 	WebElement Billed;
-	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl02_HyperlinkCatDet")
+	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl03_HyperlinkCatDet")
 	WebElement Other;
 	@FindBy(id="frmCapexPopup")
 	WebElement BilledcapexFrame;
@@ -171,6 +173,9 @@ Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page T
 		PriorityStoreContactBucket.click();
 
 	}
+	public void WebDocumentInTransitBucket(){
+	WebDocumentsinTransit.click();
+	}
 
 	//
 	public void AwaitingEtabucketAssertion() {
@@ -205,6 +210,10 @@ Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page T
 
 	public void PriorityStoreContactAssertion() {
 		Assert.assertTrue(CallStatus.getText().contains("Priority Store Contact"),
+				"Incorrect Page, SR list does not match status selected ");
+	}
+	public void WebDocumentInTransitAssertion() {
+		Assert.assertTrue(CallStatus.getText().contains("Web Document In Transit"),
 				"Incorrect Page, SR list does not match status selected ");
 	}
 

@@ -23,6 +23,9 @@ public class LoginPOF {
 	WebElement password;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_btnSubmit")
 	WebElement submit;
+	@FindBy(id = "btnSubmit")
+	WebElement LoginBtnVixxo;
+	
 	@FindBy(name = "ctl00$ContentPlaceHolder1$rptAccounts$ctl01$AccountSwitch")
 	WebElement PETSMARTUS;
 	@FindBy(name = "ctl00$ContentPlaceHolder1$rptAccounts$ctl02$AccountSwitch")
@@ -109,6 +112,7 @@ public class LoginPOF {
 	// submitting credentials
 	public void clicksubmit() {
 		submit.click();
+		//LoginBtnVixxo.click();
 	}
 
 	// Checking US PAge

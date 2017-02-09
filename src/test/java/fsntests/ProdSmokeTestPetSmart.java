@@ -161,8 +161,18 @@ public class ProdSmokeTestPetSmart {
 		RequestsataGlance.NeedingApprovalassert();
 		 
 	}
+	@Test(priority = 10)
+	public void WebDocumentsInTransitTest() {
+		LoginPage.ProdLoginEbluth();
+		LoginPage.clicksubmit();
+		LoginPage.USclick();
+		RequestsataGlance.completedrequestsclick();
+		RequestsataGlance.WebDocumentInTransitBucket();
+		RequestsataGlance.WebDocumentInTransitAssertion();
 	
-	@Test(priority = 8)
+	}
+	
+	@Test(priority = 11)
 	public void CompletedSRsToBeBilledTest() {
 		LoginPage.ProdLoginEbluth();
 		LoginPage.clicksubmit();
@@ -172,8 +182,8 @@ public class ProdSmokeTestPetSmart {
 		RequestsataGlance.TobebilledAssertion();
 	
 	}
-
-	@Test(priority = 9)
+//**************Pending Bug fix*****************
+	@Test(enabled=false)
 	public void CompletedSRsBilledTest() {
 		LoginPage.ProdLoginEbluth();
 		LoginPage.clicksubmit();
@@ -182,11 +192,11 @@ public class ProdSmokeTestPetSmart {
 		RequestsataGlance.billedclick();
 		RequestsataGlance.ClearBilledCapexFrame();
 		RequestsataGlance.billedassertion();
-	
+//***********************************************
 
 	}
 
-	@Test(priority = 10)
+	@Test(priority = 13)
 	public void CompletedSRsOtherTest() {
 		LoginPage.ProdLoginEbluth();
 		LoginPage.clicksubmit();
@@ -197,7 +207,7 @@ public class ProdSmokeTestPetSmart {
 	
 
 	}
-	@Test(priority = 11)
+	@Test(priority = 14)
 	public void QuoteApprovalOptionsTest() {
 		LoginPage.ProdLoginEbluth();
 		LoginPage.clicksubmit();
@@ -209,7 +219,7 @@ public class ProdSmokeTestPetSmart {
 
 	}
 	
-	@Test(priority = 12)
+	@Test(priority = 15)
 	public void ConfirmCorporateSRCreate() throws InterruptedException {
 		
 		LoginPage.ProdLoginEbluth();
@@ -228,7 +238,7 @@ public class ProdSmokeTestPetSmart {
 		
 
 	}
-	@Test (priority=13)
+	@Test (priority=16)
 	public void SiteHistoryNavigationTest() throws InterruptedException {
 		LoginPage.ProdLoginEbluth();
 		LoginPage.clicksubmit();
@@ -237,7 +247,7 @@ public class ProdSmokeTestPetSmart {
 		SiteHistoryPage.searchresultscheck();
 	}
 	
-	@Test (priority=14)
+	@Test (priority=17)
 	public void SRDetailValidation() throws InterruptedException {
 		LoginPage.ProdLoginEbluth();
 		LoginPage.clicksubmit();
@@ -248,7 +258,7 @@ public class ProdSmokeTestPetSmart {
 		
 	}
 	
-	@Test (priority=15)
+	@Test (priority=18)
 	public void ServiceDetailEmailPageValidation() throws InterruptedException {
 		LoginPage.ProdLoginEbluth();
 		LoginPage.clicksubmit();
@@ -258,17 +268,13 @@ public class ProdSmokeTestPetSmart {
 		SiteHistoryPage.ContactEmailPageNavigate();
 		SiteHistoryPage.ContactEmailPageConfirmation();
 	}
-	@Test (priority=16)
+	@Test (priority=19)
 	public void SiteUserSRCreateSiteSelectionTest() throws InterruptedException {
 		LoginPage.ProdLoginm0059();
 		LoginPage.clicksubmit();
 		SRCreatePage.NavigateToSRCreateWithbtn();
 		SRCreatePage.SiteSelect();
 		SRCreatePage.SiteAreaNotAvailableCheck();
-		/*SRCreatePage.switchtocurrentwindow();
-		SRCreatePage.MyFSNHelpPageConfirmation();
-		SRCreatePage.closecurrentwidnow();
-		SRCreatePage.switchtocurrentwindow();*/
 		SRCreatePage.SiteSelectSpecific();
 		SRCreatePage.SiteAreaAvailableCheck();
 		
@@ -284,7 +290,7 @@ public class ProdSmokeTestPetSmart {
 
 	@AfterSuite
 	public void afterSuite() {
-	//Utilities.driver.quit();
+	Utilities.driver.quit();
 	}
 
 }
