@@ -43,18 +43,6 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>1.1.5</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core -->
-		<dependency>
-			<groupId>net.serenity-bdd</groupId>
-			<artifactId>serenity-core</artifactId>
-			<version>1.2.3-rc.3</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-junit -->
-		<dependency>
-			<groupId>net.serenity-bdd</groupId>
-			<artifactId>serenity-junit</artifactId>
-			<version>1.2.3-rc.3</version>
-		</dependency>
 		<dependency>
 			<groupId>com.github.markusbernhardt</groupId>
 			<artifactId>robotframework-selenium2library-java</artifactId>
@@ -144,27 +132,6 @@
 
 
 
-			<plugin>
-				<groupId>net.serenity-bdd.maven.plugins</groupId>
-				<artifactId>serenity-maven-plugin</artifactId>
-				<version>${serenity.maven.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>net.serenity-bdd</groupId>
-						<artifactId>core</artifactId>
-						<version>${serenity.version}</version>
-					</dependency>
-				</dependencies>
-				<executions>
-					<execution>
-						<id>serenity-reports</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>aggregate</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 
