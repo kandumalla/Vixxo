@@ -76,6 +76,10 @@ public class LoginPOF {
 		String MsiUser = "MSI01";
 		login.sendKeys(MsiUser);
 	}
+	public void sendUserNameAHD01(){
+	    String AholdUser = "sbastien";
+	    login.sendKeys(AholdUser);
+	}
 
 	public void sendUserNameServiceCenter(String strUsername) {
 		login.sendKeys("servicecenter");

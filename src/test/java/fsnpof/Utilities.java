@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Utilities {
 	
-	public static String MYFSNURL = "http://fsndevweb:1313";
+	public static String MYFSNURL = "http://fsndevweb";
 	public static String MYFSNPRODURL = "https://www.myfsn.biz/default.aspx?admin=itmyfsn";
 	//Direct NTE Links Per Client
 	public static String SEINTE = "http://fsndevweb:81/FM-Forms/NTE.aspx?srnumber=1-2073245042&login=FMTESTL3";

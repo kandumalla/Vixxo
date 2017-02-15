@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import com.sun.tools.javac.util.Log;
 import com.thoughtworks.selenium.Wait;
 import org.openqa.selenium.interactions.Actions;
 
@@ -92,8 +94,33 @@ public class SRCreate {
 	@FindBy(id = "//*[@id='divLOSShortdescContent']/div/input")
 	WebElement OKBtnSRWarrentyNotification;
 
-	@FindBy(xpath = "//*[text()='Yes']")
-	WebElement DSAnswerSafetyIssueY;
+	@FindBy(id = "ddlReasonForCAll")
+	WebElement ReasonForCallSearchField;
+
+	// Dynamic Scripting Answer IDs
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[1]")
+	WebElement DSA1;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[2]")
+	WebElement DSA2;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[3]")
+	WebElement DSA3;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[4]")
+	WebElement DSA4;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[5]")
+	WebElement DSA5;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[6]")
+	WebElement DSA6;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[7]")
+	WebElement DSA7;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[8]")
+	WebElement DSA8;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[9]")
+	WebElement DSA9;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[10]")
+	WebElement DSA10;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']//following::input[11]")
+	WebElement DSA11;
+
 	// *[contains=@value, 'Yes']
 	// *[text()='Yes']
 
@@ -129,13 +156,21 @@ public class SRCreate {
 	public void NavigateToSRCreateWithbtn() {
 		SRCreatebtn.click();
 	}
-
-	public void SiteSelect() throws InterruptedException {
+	
+	public void ClientSelect() throws InterruptedException {
 		Thread.sleep(2000);
-		SelectSitebox.sendKeys("99999");
+		SelectSitebox.sendKeys("AHD01");
 		Thread.sleep(2000);
 		SelectSitebox.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
 		Thread.sleep(2000);
+	}
+
+	public void SiteSelect() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(SelectSitebox));
+		SelectSitebox.sendKeys("99999");
+		Thread.sleep(2000);
+		SelectSitebox.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+		
 	}
 
 	public void SiteSelectSpecific() throws InterruptedException {
@@ -148,17 +183,19 @@ public class SRCreate {
 	}
 
 	public void MyFSNHelpPageConfirmation() {
-		Set<String> WindowHandles=Utilities.driver.getWindowHandles();
-		String ActualUrl= Utilities.driver.getCurrentUrl();
+		Set<String> WindowHandles = Utilities.driver.getWindowHandles();
+		String ActualUrl = Utilities.driver.getCurrentUrl();
 		Utilities.driver.switchTo().window("");
-		Assert.assertTrue(Utilities.driver.getCurrentUrl().contains("help"),"Expected Help page, currently on" + ActualUrl);
+		Assert.assertTrue(Utilities.driver.getCurrentUrl().contains("help"),
+				"Expected Help page, currently on" + ActualUrl);
 	}
 
-	public void SiteAreaNotAvailableCheck(){
-	Assert.assertTrue(!SiteAreaDropDown.isDisplayed(),("Site Area should not be displayed"));
+	public void SiteAreaNotAvailableCheck() {
+		Assert.assertTrue(!SiteAreaDropDown.isDisplayed(), ("Site Area should not be displayed"));
 	}
-	public void SiteAreaAvailableCheck(){
-		Assert.assertTrue(SiteAreaDropDown.isDisplayed(),("Site Area should be displayed"));
+
+	public void SiteAreaAvailableCheck() {
+		Assert.assertTrue(SiteAreaDropDown.isDisplayed(), ("Site Area should be displayed"));
 	}
 
 	public void switchtocurrentwindow() {
@@ -171,16 +208,29 @@ public class SRCreate {
 	}
 
 	public void SelectArea() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(SiteAreaDropDown));
 		Select siteareadd = new Select(SiteAreaDropDown);
 		Thread.sleep(2000);
 		siteareadd.selectByVisibleText("Core Store");
+	}
+	
+	public void SelectAreaMSI01() throws InterruptedException {
+		Select siteareadd = new Select(SiteAreaDropDown);
 		Thread.sleep(2000);
+		siteareadd.selectByVisibleText("Exterior");
+		
 	}
 
 	public void SelectSubArea() throws InterruptedException {
 		Select subsiteareadd = new Select(SubSiteAreaDropDown);
 		Thread.sleep(2000);
 		subsiteareadd.selectByVisibleText("Sales floor");
+		
+	}
+	public void SelectSubAreaMSI01() throws InterruptedException {
+		Select subsiteareadd = new Select(SubSiteAreaDropDown);
+		Thread.sleep(2000);
+		subsiteareadd.selectByVisibleText("Front");
 		Thread.sleep(2000);
 
 	}
@@ -189,48 +239,109 @@ public class SRCreate {
 		Select typeofservicedd = new Select(TypeofService);
 		Thread.sleep(2000);
 		typeofservicedd.selectByVisibleText("Windows");
-		Thread.sleep(3000);
+		
 	}
 
 	public void SelectReasonForCall() throws InterruptedException {
 		Select reasondd = new Select(ReasonForCall);
 		Thread.sleep(2000);
 		reasondd.selectByVisibleText("Leaking");
-		Thread.sleep(2000);
+		
 
 	}
 
-	public void DSQuestionAnswer1() throws InterruptedException {
-		DSAnswerSafetyIssueY.click();
+	@FindBy(xpath="//*[@id='ui-id-7']")
+	WebElement AutoSearchResult;
+		
+	public void SearchReasonForCall() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(ReasonForCallSearchField));
+		ReasonForCallSearchField.sendKeys("Automatic");
 		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(AutoSearchResult));
+		ReasonForCallSearchField.sendKeys(Keys.DOWN, Keys.ENTER);
+	}
+	@FindBy (xpath = " //*[@id='ctl00_ContentPlaceHolder1_ddlSshortDesc']/option[2]")
+	WebElement ReasonForCallSelection;
+
+	public void SelectReasonForCallMSI01() throws InterruptedException {
+		Select reasondd = new Select(ReasonForCall);
+		wait.until(ExpectedConditions.elementToBeClickable(ReasonForCallSelection));
+		//reasondd.selectByVisibleText("Alarm Contact/Sensors");
+		ReasonForCallSelection.click();
+		
+
+	}
+
+	public void DSQuestionAnswerA1() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(DSA1));
+		DSA1.click();
+		
+	}
+	public void DSQuestionAnswerA2() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(DSA2));
+		DSA2.click();
+		
+	}
+	public void DSQuestionAnswerA3() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(DSA3));
+		DSA2.click();
+		DSA3.click();
+		
+	}
+	public void DSQuestionAnswerA4() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(DSA3));
+		DSA4.click();
+	
+	}
+	
+	public void AnswerDSQuestions() throws InterruptedException{
+		DSQuestionAnswerA1();
+		DSQuestionAnswerA4();
 	}
 
 	public void EnterRequestByInfo() {
+		wait.until(ExpectedConditions.elementToBeClickable(RequesterInfo));
 		RequesterInfo.sendKeys("deonte.mohamed@vixxo.com");
 
 	}
 
 	public void EnterDetailedDescription() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(DetailedDescription));
 		DetailedDescription.sendKeys("brokenalarm");
-		Thread.sleep(2000);
+		
 	}
 
 	public void SubmitSR() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(Submitbtn));
 		Submitbtn.click();
 
 	}
-
+    @FindBy(xpath="//*[@id='pnlRegularMyFSN']/div[3]/div[1]")
+    WebElement MyFSNError;
 	public void SRCheck() {
-		wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
+		wait.until(ExpectedConditions.elementToBeClickable(SRConfirmationLink));
+		wait.until(ExpectedConditions.visibilityOf(SRNumberMessage));
+		
 		SRConfirmationLink.click();
 		String urlsrconfirmation = Utilities.driver.getCurrentUrl();
 
-		if (urlsrconfirmation.contains("SRdetail.aspx?")) {
+		if (urlsrconfirmation.contains("SRdetail.aspx?srid=1")) {
 			System.out.println("**SERVICE REQUEST CREATION SUCCESSFUL**");
 
-		} else if (!SRSubmissionTimeOutMessage.isDisplayed()) {
-			Assert.fail("ERROR SERVICE REQUEST PROCESSING TOOK MORE THAN 60 SECONDS WITH NO TIME OUT MESSAGE");
+		} 
+		else if (MyFSNError.isDisplayed()){
+		Assert.fail("Error, Service Request number did not return to myFSN after submission");	
+			
+		}
+		else if (SRSubmissionTimeOutMessage.isDisplayed()){
+		Assert.fail("SR Create timed out");
+		}
+		else if (!SRSubmissionTimeOutMessage.isDisplayed()) {
+		Assert.fail("ERROR SERVICE REQUEST PROCESSING TOOK MORE THAN 60 SECONDS WITH NO TIME OUT MESSAGE");
+		}
+		
+		else {
+		Assert.fail("Issue with SR create, requires investigation");
 		}
 
 	}
@@ -263,13 +374,7 @@ public class SRCreate {
 			wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
 			SRConfirmationLink.click();
 			String urlsrconfirmation = Utilities.driver.getCurrentUrl();
-			if (urlsrconfirmation.contains("SRdetail.aspx?")) {
-				System.out.println("**SERVICE REQUEST CREATION SUCCESSFUL**");
-
-			} else if (!SRSubmissionTimeOutMessage.isDisplayed()) {
-				Assert.fail("ERROR SERVICE REQUEST PROCESSING TOOK MORE THAN 60 SECONDS WITH NO TIME OUT MESSAGE");
-			}
-
+			SRCheck();
 		}
 
 	}
@@ -282,7 +387,7 @@ public class SRCreate {
 	}
 
 	public void SRCreationTestHVAC() throws InterruptedException {
-		
+
 		Thread.sleep(3000);
 		SelectSitebox.sendKeys("(0047) PetSmart - 575 Rohnert Park Expy W Rohnert Park, CA ");
 		Thread.sleep(3000);
@@ -302,14 +407,15 @@ public class SRCreate {
 		Select reasondd = new Select(ReasonForCall);
 		Thread.sleep(3000);
 		reasondd.selectByVisibleText("Too Cold");
+		Thread.sleep(1000);
 		RequesterInfo.sendKeys("deonte.mohamed@vixxo.com");
 		DetailedDescription.sendKeys("test");
 		Thread.sleep(2000);
 		if (SRNotificationPopup.isDisplayed())
 			SRNotificationPopup.click();
 		Submitbtn.click();
-
 		wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
+		SRCheck();
 		SRConfirmationLink.click();
 		SCDropDown.sendKeys("F", Keys.ENTER);
 		SaveChangesbtn.click();
@@ -359,13 +465,7 @@ public class SRCreate {
 
 		wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
 		SRConfirmationLink.click();
-		/*
-		 * SCDropDown.sendKeys("F", Keys.ENTER); SaveChangesbtn.click();
-		 */
-
-		// String urlsrconfirmation= driver.getCurrentUrl();
-		// Assert.assertTrue(urlsrconfirmation.contains("http://www.ourfsn.com/myfsn/SRdetail.aspx?"),
-		// "SR processing unsuccessful");
+		
 		if (SRDetailPagehdr.isDisplayed()) {
 			System.out.println("**SERVICE REQUEST CREATION SUCCESSFUL**");
 
@@ -476,16 +576,8 @@ public class SRCreate {
 			wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
 			SRConfirmationLink.click();
 			String urlsrconfirmation = Utilities.driver.getCurrentUrl();
-			// Assert.assertTrue(urlsrconfirmation.contains("http://www.ourfsn.com/myfsn/SRdetail.aspx?"),
-			// "SR processing unsuccessful");
-			if (urlsrconfirmation.contains("SRdetail.aspx?")) {
-				System.out.println("**SERVICE REQUEST CREATION SUCCESSFUL**");
-
-			} else if (!SRSubmissionTimeOutMessage.isDisplayed()) {
-				Assert.fail("ERROR SERVICE REQUEST PROCESSING TOOK MORE THAN 60 SECONDS WITH NO TIME OUT MESSAGE");
-			}
-
-			// Thread.sleep(3000);
+		
+			SRCheck();
 
 		}
 

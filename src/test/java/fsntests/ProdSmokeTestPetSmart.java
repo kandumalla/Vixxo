@@ -31,7 +31,7 @@ public class ProdSmokeTestPetSmart {
 	@BeforeSuite
 	public void beforeSuite() {
 		Utilities.webdrive();
-		// setting global explicit wait
+		// setting global implicit wait
 		PageFactory.initElements(new AjaxElementLocatorFactory(Utilities.driver, 60), this);
 		Utilities.driver.get("about:blank");
 		// initiating elements in page factory
