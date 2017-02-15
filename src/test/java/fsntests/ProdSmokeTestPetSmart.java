@@ -234,7 +234,7 @@ public class ProdSmokeTestPetSmart {
 		SRCreatePage.EnterRequestByInfo();
 		SRCreatePage.EnterDetailedDescription();
 		SRCreatePage.SubmitSR();
-		SRCreatePage.SRCheck();
+		SRCreatePage.SRCheckClient();
 		
 
 	}
