@@ -1,26 +1,22 @@
 package fsnpof;
 
-import org.openqa.selenium.By;
+import java.util.Set;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
-
-import com.sun.tools.javac.util.Log;
-import com.thoughtworks.selenium.Wait;
 import org.openqa.selenium.interactions.Actions;
-
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.remote.server.handler.SendKeys;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public class SRCreate {
+	String RandomString = UUID.randomUUID().toString();
 	WebDriverWait wait = new WebDriverWait(Utilities.driver, 60);
 
 	// Home Page
@@ -140,6 +136,30 @@ public class SRCreate {
 
 	}
 
+	public void NavigateToSRCreateSC() {
+
+	}
+
+	@FindBy(id = "ctl00_ContentPlaceHolder1_ddlCust")
+	WebElement SelectCustomerSearch;
+
+
+	public void SelectCustomerStarbucks() throws InterruptedException {
+		SelectCustomerSearch.sendKeys("811");
+		Thread.sleep(2000);
+		SelectCustomerSearch.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER);
+		Thread.sleep(2000);
+
+	}
+
+	public void SelectCustomerMSI01() throws InterruptedException {
+		SelectCustomerSearch.sendKeys("MSI01");
+		Thread.sleep(2000);
+		SelectCustomerSearch.sendKeys(Keys.ARROW_DOWN,Keys.ENTER);
+		Thread.sleep(2000);
+
+	}
+
 	public void NavigateToSRCreate() {
 		Actions action = new Actions(Utilities.driver);
 		action.moveToElement(Managesitestab).perform();
@@ -156,7 +176,7 @@ public class SRCreate {
 	public void NavigateToSRCreateWithbtn() {
 		SRCreatebtn.click();
 	}
-	
+
 	public void ClientSelect() throws InterruptedException {
 		Thread.sleep(2000);
 		SelectSitebox.sendKeys("AHD01");
@@ -170,7 +190,7 @@ public class SRCreate {
 		SelectSitebox.sendKeys("99999");
 		Thread.sleep(2000);
 		SelectSitebox.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
-		
+
 	}
 
 	public void SiteSelectSpecific() throws InterruptedException {
@@ -213,20 +233,21 @@ public class SRCreate {
 		Thread.sleep(2000);
 		siteareadd.selectByVisibleText("Core Store");
 	}
-	
+
 	public void SelectAreaMSI01() throws InterruptedException {
 		Select siteareadd = new Select(SiteAreaDropDown);
 		Thread.sleep(2000);
 		siteareadd.selectByVisibleText("Exterior");
-		
+
 	}
 
 	public void SelectSubArea() throws InterruptedException {
 		Select subsiteareadd = new Select(SubSiteAreaDropDown);
 		Thread.sleep(2000);
 		subsiteareadd.selectByVisibleText("Sales floor");
-		
+
 	}
+
 	public void SelectSubAreaMSI01() throws InterruptedException {
 		Select subsiteareadd = new Select(SubSiteAreaDropDown);
 		Thread.sleep(2000);
@@ -239,62 +260,64 @@ public class SRCreate {
 		Select typeofservicedd = new Select(TypeofService);
 		Thread.sleep(2000);
 		typeofservicedd.selectByVisibleText("Windows");
-		
+
 	}
 
 	public void SelectReasonForCall() throws InterruptedException {
 		Select reasondd = new Select(ReasonForCall);
 		Thread.sleep(2000);
 		reasondd.selectByVisibleText("Leaking");
-		
 
 	}
 
-	@FindBy(xpath="//*[@id='ui-id-7']")
+	@FindBy(xpath = "//*[@id='ui-id-7']")
 	WebElement AutoSearchResult;
-		
+
 	public void SearchReasonForCall() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(ReasonForCallSearchField));
 		ReasonForCallSearchField.sendKeys("Automatic");
 		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(AutoSearchResult));
+		//wait.until(ExpectedConditions.elementToBeClickable(AutoSearchResult));
 		ReasonForCallSearchField.sendKeys(Keys.DOWN, Keys.ENTER);
 	}
-	@FindBy (xpath = " //*[@id='ctl00_ContentPlaceHolder1_ddlSshortDesc']/option[2]")
+
+	@FindBy(xpath = " //*[@id='ctl00_ContentPlaceHolder1_ddlSshortDesc']/option[2]")
 	WebElement ReasonForCallSelection;
 
 	public void SelectReasonForCallMSI01() throws InterruptedException {
 		Select reasondd = new Select(ReasonForCall);
 		wait.until(ExpectedConditions.elementToBeClickable(ReasonForCallSelection));
-		//reasondd.selectByVisibleText("Alarm Contact/Sensors");
+		// reasondd.selectByVisibleText("Alarm Contact/Sensors");
 		ReasonForCallSelection.click();
-		
 
 	}
 
 	public void DSQuestionAnswerA1() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(DSA1));
 		DSA1.click();
-		
+
 	}
+
 	public void DSQuestionAnswerA2() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(DSA2));
 		DSA2.click();
-		
+
 	}
+
 	public void DSQuestionAnswerA3() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(DSA3));
 		DSA2.click();
 		DSA3.click();
-		
+
 	}
+
 	public void DSQuestionAnswerA4() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(DSA3));
 		DSA4.click();
-	
+
 	}
-	
-	public void AnswerDSQuestions() throws InterruptedException{
+
+	public void AnswerDSQuestions() throws InterruptedException {
 		DSQuestionAnswerA1();
 		DSQuestionAnswerA4();
 	}
@@ -308,7 +331,7 @@ public class SRCreate {
 	public void EnterDetailedDescription() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(DetailedDescription));
 		DetailedDescription.sendKeys("brokenalarm");
-		
+
 	}
 
 	public void SubmitSR() throws InterruptedException {
@@ -316,32 +339,70 @@ public class SRCreate {
 		Submitbtn.click();
 
 	}
-    @FindBy(xpath="//*[@id='pnlRegularMyFSN']/div[3]/div[1]")
-    WebElement MyFSNError;
-	public void SRCheck() {
+	
+	@FindBy (xpath="//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']/option[2]")
+	WebElement TypeofServiceSelection;
+	@FindBy (xpath="//*[@id='ctl00_ContentPlaceHolder1_ddlSshortDesc']/option[2]")
+	WebElement ReasonForCallSelectionGeneral;
+	
+	public void TypeOfServiceSDSelectionNoDS(){
+	wait.until(ExpectedConditions.elementToBeClickable(TypeofServiceSelection));
+	TypeofServiceSelection.click();
+	wait.until(ExpectedConditions.elementToBeClickable(ReasonForCallSelectionGeneral));
+	ReasonForCallSelectionGeneral.click();
+		
+	}
+	
+	public void WorkOrderInput(){
+	WorkOrder.sendKeys(RandomString);
+	}
+
+	@FindBy(xpath = "//*[@id='pnlRegularMyFSN']/div[3]/div[1]")
+	WebElement MyFSNError;
+
+	public void SRCheckClient() {
 		wait.until(ExpectedConditions.elementToBeClickable(SRConfirmationLink));
 		wait.until(ExpectedConditions.visibilityOf(SRNumberMessage));
-		
+
 		SRConfirmationLink.click();
 		String urlsrconfirmation = Utilities.driver.getCurrentUrl();
 
 		if (urlsrconfirmation.contains("SRdetail.aspx?srid=1")) {
 			System.out.println("**SERVICE REQUEST CREATION SUCCESSFUL**");
 
-		} 
-		else if (MyFSNError.isDisplayed()){
-		Assert.fail("Error, Service Request number did not return to myFSN after submission");	
-			
+		} else if (MyFSNError.isDisplayed()) {
+			Assert.fail("Error, Service Request number did not return to myFSN after submission");
+
+		} else if (SRSubmissionTimeOutMessage.isDisplayed()) {
+			Assert.fail("SR Create timed out");
+		} else if (!SRSubmissionTimeOutMessage.isDisplayed()) {
+			Assert.fail("ERROR SERVICE REQUEST PROCESSING TOOK MORE THAN 60 SECONDS WITH NO TIME OUT MESSAGE");
 		}
-		else if (SRSubmissionTimeOutMessage.isDisplayed()){
-		Assert.fail("SR Create timed out");
-		}
-		else if (!SRSubmissionTimeOutMessage.isDisplayed()) {
-		Assert.fail("ERROR SERVICE REQUEST PROCESSING TOOK MORE THAN 60 SECONDS WITH NO TIME OUT MESSAGE");
-		}
-		
+
 		else {
-		Assert.fail("Issue with SR create, requires investigation");
+			Assert.fail("Issue with SR create, requires investigation");
+		}
+
+	}
+	public void SRCheckServiceCenter() {
+		wait.until(ExpectedConditions.visibilityOf(SRNumberMessage));
+
+		
+
+		if (SRNumberMessage.getText().contains("1-")) {
+			System.out.println("**SERVICE REQUEST CREATION SUCCESSFUL**");
+
+		} else if (MyFSNError.isDisplayed()) {
+			Assert.fail("Error, Service Request number did not return to myFSN after submission");
+
+		} else if (SRSubmissionTimeOutMessage.isDisplayed()) {
+			Assert.fail("SR Create timed out");
+		} else if (!SRSubmissionTimeOutMessage.isDisplayed()) {
+			Assert.fail("ERROR SERVICE REQUEST PROCESSING TOOK MORE THAN 60 SECONDS WITH NO TIME OUT MESSAGE");
+		}
+
+		else {
+			Assert.fail("Issue with SR create, requires investigation");
 		}
 
 	}
@@ -374,7 +435,7 @@ public class SRCreate {
 			wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
 			SRConfirmationLink.click();
 			String urlsrconfirmation = Utilities.driver.getCurrentUrl();
-			SRCheck();
+			SRCheckClient();
 		}
 
 	}
@@ -387,7 +448,7 @@ public class SRCreate {
 	}
 
 	public void SRCreationTestHVAC() throws InterruptedException {
-
+       Utilities.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Thread.sleep(3000);
 		SelectSitebox.sendKeys("(0047) PetSmart - 575 Rohnert Park Expy W Rohnert Park, CA ");
 		Thread.sleep(3000);
@@ -415,7 +476,7 @@ public class SRCreate {
 			SRNotificationPopup.click();
 		Submitbtn.click();
 		wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
-		SRCheck();
+		SRCheckClient();
 		SRConfirmationLink.click();
 		SCDropDown.sendKeys("F", Keys.ENTER);
 		SaveChangesbtn.click();
@@ -465,7 +526,7 @@ public class SRCreate {
 
 		wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
 		SRConfirmationLink.click();
-		
+
 		if (SRDetailPagehdr.isDisplayed()) {
 			System.out.println("**SERVICE REQUEST CREATION SUCCESSFUL**");
 
@@ -477,6 +538,7 @@ public class SRCreate {
 	}
 
 	public void SRCreationTestBioHazardAlertcheck() throws InterruptedException {
+		Utilities.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Thread.sleep(3000);
 		SelectSitebox.sendKeys("(0047) PetSmart - 575 Rohnert Park Expy W Rohnert Park, CA ");
 		Thread.sleep(3000);
@@ -499,27 +561,39 @@ public class SRCreate {
 		ExpectedConditions.alertIsPresent();
 
 	}
+@FindBy (xpath="//*[contains(text(),'Core Store')]")
+WebElement SiteAreaCoreStore;
+@FindBy (xpath="//*[contains(text(),'Sales floor')]")
+WebElement SiteSubAreaSalesFloor;
+@FindBy (xpath="//*[contains(text(),'Hazardous Material Handling')]")
+WebElement TypeOfServiceHazardousMaterialHandling;
+@FindBy (xpath="//*[contains(text(),'Hazardous Material Handling')]")
+WebElement ReasonForCallChemicalSpill;
 
+//*[Contains(text(),'Core Store')]
 	public void SRCreationChemicalSpillAlertcheck() throws InterruptedException {
+		Utilities.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Thread.sleep(3000);
 		SelectSitebox.sendKeys("(0047) PetSmart - 575 Rohnert Park Expy W Rohnert Park, CA ");
 		Thread.sleep(3000);
 		SelectSitebox.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
 		Select siteareadd = new Select(SiteAreaDropDown);
-		Thread.sleep(3000);
-		siteareadd.selectByVisibleText("Core Store");
+        wait.until(ExpectedConditions.elementToBeClickable(SiteAreaCoreStore));
+        SiteAreaCoreStore.click();
 		Select subsiteareadd = new Select(SubSiteAreaDropDown);
-		Thread.sleep(3000);
-		subsiteareadd.selectByVisibleText("Sales floor");
+		wait.until(ExpectedConditions.elementToBeClickable(SiteSubAreaSalesFloor));
+//		subsiteareadd.selectByVisibleText("Sales floor");
+		SiteSubAreaSalesFloor.click();
 		Select typeofservicedd = new Select(TypeofService);
+		wait.until(ExpectedConditions.elementToBeClickable(TypeOfServiceHazardousMaterialHandling));
+		/*typeofservicedd.selectByVisibleText("Hazardous Material Handling");*/
+		TypeOfServiceHazardousMaterialHandling.click();
 		Thread.sleep(3000);
-		typeofservicedd.selectByVisibleText("Hazardous Material Handling");
-		/*
-		 * NoSafetyIssueQ.click(); YesTooHotTooColdQ.click();
-		 */
 		Select reasondd = new Select(ReasonForCall);
+		wait.until(ExpectedConditions.elementToBeClickable(ReasonForCallChemicalSpill));
+//		reasondd.selectByVisibleText("Chemical Spill");
+		ReasonForCallChemicalSpill.click();
 		Thread.sleep(3000);
-		reasondd.selectByVisibleText("Chemical Spill");
 		ExpectedConditions.alertIsPresent();
 
 	}
@@ -576,8 +650,8 @@ public class SRCreate {
 			wait.until(ExpectedConditions.visibilityOf(SRConfirmationLink));
 			SRConfirmationLink.click();
 			String urlsrconfirmation = Utilities.driver.getCurrentUrl();
-		
-			SRCheck();
+
+			SRCheckClient();
 
 		}
 

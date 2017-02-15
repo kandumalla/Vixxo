@@ -6,10 +6,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.Alert;
+import java.util.UUID;
+
 
 
 
 public class HomePagePOFSC {
+	public String uuid = UUID.randomUUID().toString();
+			
 	@FindBy(id = "ctl00_Menu1_0")
 	WebElement Home;
 
@@ -45,7 +49,7 @@ public class HomePagePOFSC {
 	@FindBy(id = "ctl00_Menu1_11")
 	WebElement MyAccount;
 
-	@FindBy(id = "ctl00_Menu1_12")
+	@FindBy(xpath = "//*[contains(text(),'Create new SR')]")
 	WebElement CreateNewSRlink;
 
 	@FindBy(id = "ctl00_Menu1_13")
@@ -53,6 +57,7 @@ public class HomePagePOFSC {
 
 	@FindBy(id = "ctl00_Menu1_14")
 	WebElement Tools;
+    
 
 	@FindBy(id = "ctl00_Menu1_29")
 	WebElement Logout;
@@ -121,7 +126,14 @@ public class HomePagePOFSC {
 
 }
 public void srSearch(){
+	Actions action = new Actions(Utilities.driver);
+	action.moveToElement(Queues).perform();
+	WebElement subElement = InvoiceQueue;
+	action.moveToElement(subElement).click().perform();
 	
+}
+public void navigatetoSRCreate(){
+ CreateNewSRlink.click();	
 }
 }
 
