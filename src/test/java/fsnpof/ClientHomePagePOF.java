@@ -82,9 +82,9 @@ Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page T
 	// Completed Requests Bucket
 	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_ImageExpCol")
 	WebElement CompletedRequestsbtn;
-	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl01_HyperlinkCatDet")
+	@FindBy(xpath = "//*[contains(text(),'Web Document In Transit')]")
 	WebElement WebDocumentsinTransit;
-	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl00_HyperlinkCatDet")
+	@FindBy(xpath = "//*[contains(text(),'To Be Billed')]")
 	WebElement ToBeBilled;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_RepeaterReqCat_ctl02_RepeaterReqCatDetails_ctl02_lbCompleted_Billed")
 	WebElement Billed;
