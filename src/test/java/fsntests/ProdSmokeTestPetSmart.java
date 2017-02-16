@@ -281,7 +281,7 @@ public class ProdSmokeTestPetSmart {
 	}
 
 
-	@AfterMethod
+	/*@AfterMethod
 	public void afterTest() throws InterruptedException {
 	TopMenu.Logout();
 	
@@ -292,5 +292,5 @@ public class ProdSmokeTestPetSmart {
 	public void afterSuite() {
 	Utilities.driver.quit();
 	}
-
+*/
 }
