@@ -310,7 +310,6 @@ public class SRCreate {
 	WebElement LeakingReasonforcall;
 	public void SelectReasonForCall() throws InterruptedException {
 		Select reasondd = new Select(ReasonForCall);
-		//Thread.sleep(2000);
 		wait.until(ExpectedConditions.textToBePresentInElement(LeakingReasonforcall, "Leaking"));
 		reasondd.selectByVisibleText("Leaking");
 
