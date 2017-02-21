@@ -53,10 +53,17 @@ public class SiteHistoryPOF {
 		ViewHistoryBtn.click();
 	}
 	
+	@FindBy(id="ctl00_lblPageTitle")
+	WebElement SRListTitle;
+	@FindBy(id="ctl00_ContentPlaceHolder1_rptrSRData_ctl01_hlSR#")
+	WebElement SRListData;
+	
 		public void searchresultscheck() {
 		String ActualUrl = Utilities.driver.getCurrentUrl();
-		Assert.assertTrue(Utilities.driver.getCurrentUrl().contains("SRList."),
+		Assert.assertTrue(SRListTitle.isDisplayed(),
 				"Expected to be on SR List page on page, actually on" + ActualUrl);
+		Assert.assertTrue(SRListData.isDisplayed());
+		
 
 		
 	}
@@ -67,7 +74,7 @@ public class SiteHistoryPOF {
 
 	public void SRDetailAssertion() {
 
-		Assert.assertTrue(Utilities.driver.getCurrentUrl().contains("SRdetail"), "Taken to incorrect page");
+		Assert.assertTrue(Utilities.driver.getCurrentUrl().contains("srdetail"), "Taken to incorrect page");
 	}
 
 	public void SRDetailConfirmation() {
@@ -85,10 +92,23 @@ public class SiteHistoryPOF {
 				"Email Message confirmation failed");
 
 	}
+	
 
 	public void ContactEmailPageNavigate() {
 		Contactbtn.click();
+		
 
+	}
+	WebDriverWait wait = new WebDriverWait(Utilities.driver,60);
+	
+	public void ContactPageCheck(){
+	wait.until(ExpectedConditions.elementToBeClickable(Emailfield));
+	wait.until(ExpectedConditions.elementToBeClickable(MessageField));
+	ExpectedConditions.elementToBeClickable(Emailfield);
+	ExpectedConditions.elementToBeClickable(MessageField);
+	ExpectedConditions.elementToBeClickable(EmailSubmitbtn);
+	
+	
 	}
 
 	public void ContactEmailPageConfirmation() {

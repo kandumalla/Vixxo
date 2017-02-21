@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Suite" parallel ="false" thread-count="1" >
 	<test name="Test">
 		<classes>
-		<class name="fsntests.ProdSmokeTestPetSmart"/>
+		<class name="fsntests.SRCreatesmoke_urgent"></class>
+		<class name="fsntests.ContactServiceCentersmoke_medium"></class>
+		<class name="fsntests.QuoteOptionsTestsmoke_urgent"></class>
+		<class name="fsntests.SiteUserSiteSelection_medium"></class>
+		<class name="fsntests.SitHistorysmoke_medium"></class>
+		<class name="fsntests.SrListNavigationTest_high"></class>
+		
 			
 		</classes>
 	</test> <!-- Test -->

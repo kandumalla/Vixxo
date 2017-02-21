@@ -1,13 +1,19 @@
 package fsnpof;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 // URL = http://www.ourfsn.com/myfsn/
 
 public class LoginPOF {
+
+	WebDriverWait wait = new WebDriverWait(Utilities.driver, 60);
+
 	// By customerlogin= By.id("ctl00_ContentPlaceHolder1_tbxUname");
 	// By customerpassword= By.id("ctl00_ContentPlaceHolder1_tbxPword");
 	// By submit= By.id("ctl00$ContentPlaceHolder1$btnSubmit");
@@ -25,7 +31,7 @@ public class LoginPOF {
 	WebElement submit;
 	@FindBy(id = "btnSubmit")
 	WebElement LoginBtnVixxo;
-	
+
 	@FindBy(name = "ctl00$ContentPlaceHolder1$rptAccounts$ctl01$AccountSwitch")
 	WebElement PETSMARTUS;
 	@FindBy(name = "ctl00$ContentPlaceHolder1$rptAccounts$ctl02$AccountSwitch")
@@ -42,14 +48,14 @@ public class LoginPOF {
 	WebElement LogoutButton;
 	@FindBy(id = "ctl00_Menu1_10")
 	WebElement LogoutButtonSP;
-	//ServiceCenter
+	// ServiceCenter
 	@FindBy(id = "ctl00_ContentPlaceHolder1_txtSRNumber")
 	WebElement SCSRSearchbox;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_tbSRNum")
 	WebElement SPSRSearchbox;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_ibSRNum")
 	WebElement SPSRSearchbtn;
-	
+
 	// Need to initiate factory Prior to test I.E. (HomePage hp =
 	// PageFactory.initElements(driver, HomePage.class);)
 	public static WebDriver driver;
@@ -72,13 +78,15 @@ public class LoginPOF {
 		String PetmUser = "ebluth";
 		login.sendKeys(PetmUser);
 	}
+
 	public void sendUserNameMSI(String strUsername) {
 		String MsiUser = "MSI01";
 		login.sendKeys(MsiUser);
 	}
-	public void sendUserNameAHD01(){
-	    String AholdUser = "sbastien";
-	    login.sendKeys(AholdUser);
+
+	public void sendUserNameAHD01() {
+		String AholdUser = "sbastien";
+		login.sendKeys(AholdUser);
 	}
 
 	public void sendUserNameServiceCenter(String strUsername) {
@@ -88,26 +96,43 @@ public class LoginPOF {
 	public void sendUserNameSP(String strUsername) {
 		login.sendKeys("4335701");
 	}
+
 	public void sendUserNameSPMSI(String strUsername) {
 		login.sendKeys("F284519101");
 	}
+
 	public void sendUserNameRTP() {
 		login.sendKeys("RTP");
 	}
+
 	public void sendUserNamePETMUS() {
 		login.sendKeys("PETMUSFULL");
 	}
-	
-	public void ProdLoginEbluth(){
-	login.sendKeys("ebluth");
-	password.sendKeys("Mariota02");
+
+	public void ProdLoginEbluth() {
+		try {
+			login.sendKeys("ebluth");
+		} catch (StaleElementReferenceException e) {
+			Utilities.driver.navigate().refresh();
+			login.sendKeys("ebluth");
+			password.sendKeys("Mariota02");
+		}
+        password.clear();
+		password.sendKeys("Mariota02");
 	}
-	
-	public void ProdLoginm0059(){
-	login.sendKeys("m0059");
-	password.sendKeys("holiday2015");
+
+	public void ProdLoginm0059() {
+		try {
+			login.sendKeys("m0059");
+		} catch (StaleElementReferenceException e) {
+			Utilities.driver.navigate().refresh();
+			login.sendKeys("m0059");
+			password.sendKeys("holiday2015");
+		}
+		password.clear();
+		password.sendKeys("holiday2015");
 	}
-	
+
 	// Send Password
 	public void sendPassword(String strPassword) {
 		password.sendKeys("password");
@@ -116,7 +141,7 @@ public class LoginPOF {
 	// submitting credentials
 	public void clicksubmit() {
 		submit.click();
-		//LoginBtnVixxo.click();
+		// LoginBtnVixxo.click();
 	}
 
 	// Checking US PAge
@@ -149,11 +174,13 @@ public class LoginPOF {
 	public void PRclick() {
 		PETSMARTPR.click();
 	}
-	public void AccountListCheck(){
-	Assert.assertTrue(PETSMARTUS.getAttribute("value").contains("PETSMART US (PETM-US)"));
-	Assert.assertTrue(PETSMARTCAD.getAttribute("value").contains("PETSMART CAD (PETM-CN)"));
-	Assert.assertTrue(PETSMARTPR.getAttribute("value").contains("PETSMART PR (PETM-PR)"));
+
+	public void AccountListCheck() {
+		Assert.assertTrue(PETSMARTUS.getAttribute("value").contains("PETSMART US (PETM-US)"));
+		Assert.assertTrue(PETSMARTCAD.getAttribute("value").contains("PETSMART CAD (PETM-CN)"));
+		Assert.assertTrue(PETSMARTPR.getAttribute("value").contains("PETSMART PR (PETM-PR)"));
 	}
+
 	// Click on
 	public void USPageValidation() {
 		Assert.assertTrue(PETSMARTUSASSERT.getText().contains("PETM-US"), "Incorrect Page [US,CA,PR]");
@@ -179,6 +206,7 @@ public class LoginPOF {
 		LogoutButton.click();
 
 	}
+
 	public void LogoutSP() {
 		LogoutButtonSP.click();
 
@@ -188,6 +216,7 @@ public class LoginPOF {
 		SCSRSearchbox.sendKeys(srnumber);
 
 	}
+
 	public void SPSRSearch(String srnumber) {
 		SPSRSearchbox.sendKeys(srnumber);
 		SPSRSearchbtn.click();
