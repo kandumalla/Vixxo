@@ -32,7 +32,7 @@ public class ContactServiceCentersmoke_medium {
 	ClientHomePagePOF RequestsataGlance;
 	QuotesEstimatesPOF QuotesEstimatesPage;
 
-	@BeforeTest
+	@BeforeSuite 
 	public void beforeSuite() {
 		Utilities.webdrive();
 		// setting global implicit wait
@@ -98,7 +98,7 @@ public class ContactServiceCentersmoke_medium {
 
 	@AfterTest
 	public void afterSuite() {
-		Utilities.driver.quit();
+		//Utilities.driver.quit();
 	}
 
 }

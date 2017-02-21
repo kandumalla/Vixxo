@@ -31,7 +31,7 @@ public class SitHistorysmoke_medium {
 
 	@BeforeTest
 	public void beforeSuite() {
-		Utilities.webdrive();
+		//Utilities.webdrive();
 		// setting global implicit wait
 		PageFactory.initElements(new AjaxElementLocatorFactory(Utilities.driver, 60), this);
 		Utilities.driver.get(Utilities.MYFSNPRODURL);
@@ -85,7 +85,7 @@ public class SitHistorysmoke_medium {
 
 	@AfterTest
 	public void afterSuite() {
-	Utilities.driver.quit();
+	//Utilities.driver.quit();
 	}
 
 }

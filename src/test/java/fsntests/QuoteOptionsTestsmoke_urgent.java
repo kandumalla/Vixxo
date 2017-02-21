@@ -32,10 +32,10 @@ public class QuoteOptionsTestsmoke_urgent {
 
 	@BeforeTest
 	public void beforeSuite() {
-		Utilities.webdrive();
+		//Utilities.webdrive();
 		// setting global implicit wait
 		PageFactory.initElements(new AjaxElementLocatorFactory(Utilities.driver, 60), this);
-		Utilities.driver.get(Utilities.MYFSNPRODURL);
+		//Utilities.driver.get(Utilities.MYFSNPRODURL);
 		// initiating elements in page factory
 		SRCreatePage = PageFactory.initElements(Utilities.driver, SRCreate.class);
 		LoginPage = PageFactory.initElements(Utilities.driver, LoginPOF.class);
@@ -82,7 +82,7 @@ public class QuoteOptionsTestsmoke_urgent {
 
 	@AfterTest
 	public void afterSuite() {
-		Utilities.driver.quit();
+		//Utilities.driver.quit();
 	}
 
 }

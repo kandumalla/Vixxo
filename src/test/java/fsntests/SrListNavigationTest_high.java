@@ -35,7 +35,7 @@ public class SrListNavigationTest_high {
 
 	@BeforeClass
 	public void beforeSuite() {
-		Utilities.webdrive();
+		//Utilities.webdrive();
 		// setting global implicit wait
 		PageFactory.initElements(new AjaxElementLocatorFactory(Utilities.driver, 60), this);
 		Utilities.driver.get(Utilities.MYFSNPRODURL);
@@ -221,7 +221,7 @@ public class SrListNavigationTest_high {
 
 	@AfterTest
 	public void afterSuite() {
-	Utilities.driver.quit();
+	//Utilities.driver.quit();
 	}
 
 }

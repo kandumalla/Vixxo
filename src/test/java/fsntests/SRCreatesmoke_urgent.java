@@ -32,7 +32,7 @@ public class SRCreatesmoke_urgent {
 
 	@BeforeTest
 	public void beforeSuite() {
-		Utilities.webdrive();
+		//Utilities.webdrive();
 		// setting global implicit wait
 		PageFactory.initElements(new AjaxElementLocatorFactory(Utilities.driver, 60), this);
 		Utilities.driver.get(Utilities.MYFSNPRODURL);
@@ -141,7 +141,7 @@ public class SRCreatesmoke_urgent {
 	
 	}
 
-	@AfterTest
+	@AfterSuite
 	public void afterSuite() {
 	Utilities.driver.quit();
 	}
