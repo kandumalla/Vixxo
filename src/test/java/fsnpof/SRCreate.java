@@ -5,6 +5,8 @@ import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -190,10 +192,25 @@ public class SRCreate {
 	WebElement TestSite;
 
 	public void SiteSelect() throws InterruptedException {
+		try {wait.until(ExpectedConditions.elementToBeClickable(SelectSitebox));
+		SelectSitebox.sendKeys("9999");}
+		catch (StaleElementReferenceException e2){
+		Utilities.driver.navigate().refresh();
 		wait.until(ExpectedConditions.elementToBeClickable(SelectSitebox));
-		SelectSitebox.sendKeys("99999");
+		SelectSitebox.sendKeys("9999");
+			
+		}
+		
+		try{
 		wait.until(ExpectedConditions.elementToBeClickable(TestSite));
 		TestSite.click();
+		}
+		catch (TimeoutException e){
+			Utilities.driver.navigate().refresh();
+			SelectSitebox.sendKeys("9999");
+			wait.until(ExpectedConditions.elementToBeClickable(TestSite));
+			TestSite.click();
+		}
 
 		/*
 		 * Thread.sleep(2000); SelectSitebox.sendKeys(Keys.ARROW_DOWN,
@@ -204,7 +221,7 @@ public class SRCreate {
 
 	public void Siteinput_arrowselect() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(SelectSitebox));
-		SelectSitebox.sendKeys("99999");
+		SelectSitebox.sendKeys("9999");
 		SelectSitebox.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
 		Thread.sleep(2000);
 
