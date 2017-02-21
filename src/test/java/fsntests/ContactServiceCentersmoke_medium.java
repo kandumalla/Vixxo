@@ -90,14 +90,13 @@ public class ContactServiceCentersmoke_medium {
 
 	@AfterMethod
 	public void afterTest() throws InterruptedException {
-		System.out.println(Utilities.driver.getCurrentUrl());
-		Utilities.driver.manage().window().maximize();
-		Thread.sleep(3000);
-		// TopMenu.Logout();
+	
+		
+		 TopMenu.Logout();
 
 	}
 
-	@AfterSuite
+	@AfterTest
 	public void afterSuite() {
 		Utilities.driver.quit();
 	}
