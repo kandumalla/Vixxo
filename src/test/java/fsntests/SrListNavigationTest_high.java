@@ -214,7 +214,7 @@ public class SrListNavigationTest_high {
 
 	@AfterMethod
 	public void afterTest() throws InterruptedException {
-	TopMenu.Logout();
+	TopMenu.Logoutcust();
 	
 	
 	}

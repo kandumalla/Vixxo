@@ -19,10 +19,11 @@ public void Logout (){
 LogOutbtn.click();
 	
 }
+
+
 public void HomePageCheck(){
-String ActualURL = Utilities.driver.getCurrentUrl();
-Assert.assertTrue(Utilities.driver.getCurrentUrl().contains("Home"), "Expected to be on home page, actually on "+ ActualURL);
-Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page Title}{Welcome} Actual {Page Title}{!=Welcome}");
+String ActualTitle = HomePageTitle.getText();
+Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page Title}{Welcome} Actual {Page Title}=" + ActualTitle);
 	
 }
 	// Call Status same ID for all

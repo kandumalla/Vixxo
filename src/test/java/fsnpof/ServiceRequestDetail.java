@@ -58,52 +58,103 @@ public class ServiceRequestDetail {
 	WebElement SRListSelect;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_createInvoiceButton")
 	WebElement CreateInvoicebtn;
-	@FindBy(id = "	ctl00_ContentPlaceHolder1_slaDealine")
+	@FindBy(id = "ctl00_ContentPlaceHolder1_slaDealine")
 	WebElement ResponeSLADate;
 	@FindBy(id = "ddlResolutionCode")
 	WebElement ResolutionCode;
-	
+	@FindBy (id="ctl00_ContentPlaceHolder1_rptrSRData_ctl01_hlSR#")
+	WebElement SRListSR1;
 
+	@FindBy(id = "ctl00_ContentPlaceHolder1_status")
+	WebElement CallStatusField;
+     
 	
-	public void ETASubmit (){
-		String ETA=ResponeSLADate.getText();
+	public String ETAresponsesla;
+	public String Callstatus;
+    public void selectSRFromList() {
+    SRListSR1.click();
+    	
+    }
+	public void ETACaptureResponseSLA() {
+		String ETA = ResponeSLADate.getText();
+		ETA = ETAresponsesla;
+	}
+
+	public String getETAReference() {
+
+		return ETAresponsesla;
+
+	}
+
+	public void captureCallStatus() {
+		String CurrentCallstatus = CallStatusField.getText();
+		CurrentCallstatus = Callstatus;
+
+	}
+
+	public String getCallStatus() {
+		return Callstatus;
+	}
+
+	public void ETAentervalid() {
+		ETABox.sendKeys(ETAresponsesla);
+
+	}
+
+	public void ETASubmitaction() {
+		String ETA = ResponeSLADate.getText();
 		ManageActivitybtn.click();
 		Utilities.driver.switchTo().frame(ManageActivityBox);
 		ETABox.sendKeys(ETA);
 		SavebtnActivityPopup.click();
-		
-		
-	}
-	
-	public void TimeIn (){
-		CheckinBtn.click();
-	}
-	public void Timeout (){
-		CheckinBtn.click();
-	}
-	
-	public boolean ResolutionCodeEnabled (){
 
-		 try 
-		    { 
-		        ResolutionCode.isDisplayed();
-		        return true; 
-		    }   // try 
-		    catch (NotFoundException Ex) 
-		    { 
-		        return false; 
-		    }   // catch 
-		
 	}
-	
-	
+
+	public void TimeIn() {
+		CheckinBtn.click();
+	}
+
+	public void Timeout() {
+		CheckinBtn.click();
+	}
+
+	public boolean ResolutionCodeEnabled() {
+
+		try {
+			ResolutionCode.isDisplayed();
+			return true;
+		} // try
+		catch (NotFoundException Ex) {
+			return false;
+		} // catch
+
+	}
+
+	public void ManageActivitesOpen() {
+		ManageActivitybtn.click();
+		Utilities.driver.switchTo().frame(ManageActivityBox);
+	}
+
+	public void Timeinaction() {
+		CheckinBtn.click();
+
+	}
+
+	public void timeoutaction() {
+		CheckOutBtn.click();
+	}
+
+	public void sendETAAction() {
+
+	}
+
 	public void ActivtityCompletition() throws InterruptedException {
 		CheckinBtn.click();
 		Thread.sleep(2000);
 		String Timein = Timeinstamp.getText();
 		CheckOutBtn.click();
 		Thread.sleep(5000);
-		Alert savealert =Utilities.driver.switchTo().alert();
+		Alert savealert = Utilities.driver.switchTo().alert();
 		savealert.accept();
 		Thread.sleep(2000);
 		Utilities.driver.switchTo().frame(ManageActivityBox);
@@ -117,7 +168,7 @@ public class ServiceRequestDetail {
 		 */
 		JobCompleteDropDown.sendKeys("y");
 		Thread.sleep(2000);
-		if (ResolutionCodeEnabled()){
+		if (ResolutionCodeEnabled()) {
 			ResolutionCode.sendKeys("Service Completed");
 		}
 		TextBoxSRNote.sendKeys("test");
@@ -125,8 +176,6 @@ public class ServiceRequestDetail {
 		Thread.sleep(3000);
 		SavebtnActivityPopup.click();
 	}
-	
-
 
 	// Invoice Module Billing Requirements
 	@FindBy(id = "ctl00_ContentPlaceHolder1_TextboxInvNum")
@@ -143,10 +192,10 @@ public class ServiceRequestDetail {
 	WebElement TodaysDatebtn;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_LabelSRNumberHeader")
 	WebElement SRNumberBillingReqOld;
-	
+
 	@FindBy(id = "ctl00_ContentPlaceHolder1_contactInfo_serviceRequestNumberLabel")
 	WebElement SRNumberBillingReqNew;
-	
+
 	@FindBy(id = "ctl00_ContentPlaceHolder1_DropdownlistSignature")
 	WebElement CustomerSignatureQuestion;
 	// Remember to include work date alert acceptance before proceeding to step
@@ -224,13 +273,11 @@ public class ServiceRequestDetail {
 	WebElement FileAttachmentFrame;
 	@FindBy(id = "attachment")
 	WebElement Choosefilebtn;
-	//Submit invoice 
-	
-	
+	// Submit invoice
+
 	@FindBy(xpath = "//*[@id='InvoicingContainer']/div[1]/div/ul/li[3]")
 	WebElement SubmitInvoicebtn;
-	
-	
+
 	// Need additional research on attaching files
 	@FindBy(id = "ImageNext")
 	WebElement Nextbtnframe;
@@ -248,9 +295,9 @@ public class ServiceRequestDetail {
 	WebElement SubmitInvoice;
 	// Confirmation page
 	@FindBy(id = "ctl00_ContentPlaceHolder1_ucSummary_lblNoPaymentReferenceNumber")
-    WebElement InvoiceReferenceNumber;
+	WebElement InvoiceReferenceNumber;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_ucSummary_lblSRNumber")
-    WebElement SRNumberConfirmationPage;
+	WebElement SRNumberConfirmationPage;
 
 	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ucSummary_gridWork']/tbody/tr[2]/td[1]")
 	WebElement WorkPerformedConfirmationPage;
@@ -266,24 +313,20 @@ public class ServiceRequestDetail {
 	WebElement RequestedRateConfirmationPage;
 	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ucSummary_gridLaborServiceCenterView']/tbody/tr[2]/td[@class='NumericCell'][4]")
 	WebElement RequestedRate;
-	
-
 
 	@FindBy(xpath = "ctl00_ContentPlaceHolder1_lblTaxExempt")
 	WebElement TaxExempt;
-	
-	
-	
-	
 
 	public static WebDriver driver = Utilities.driver;
 
 	public static void webdrive() {
 		Utilities.webdrive();
-		/*System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\dmohamed\\Documents\\Testing Environment\\Testing Environment\\Web Drivers\\chromedriver_win32 (1)\\chromedriver.exe");
-		WebDriver chromedriver = new ChromeDriver();
-		driver = chromedriver;*/
+		/*
+		 * System.setProperty("webdriver.chrome.driver",
+		 * "C:\\Users\\dmohamed\\Documents\\Testing Environment\\Testing Environment\\Web Drivers\\chromedriver_win32 (1)\\chromedriver.exe"
+		 * ); WebDriver chromedriver = new ChromeDriver(); driver =
+		 * chromedriver;
+		 */
 
 	}
 
@@ -299,14 +342,16 @@ public class ServiceRequestDetail {
 
 	}
 
-	
-	public void InvoiceCreate (){
-	CreateInvoicebtn.click();
+	public void InvoiceCreate() {
+		CreateInvoicebtn.click();
 
 	}
 
 	public String InvoiceBillingRequirementCompletion(String Srnumber) throws InterruptedException {
-		String srnumber2 = SRNumberBillingReqNew.getText(); //Example of getting Service request number in invoice class 
+		String srnumber2 = SRNumberBillingReqNew.getText(); // Example of
+															// getting Service
+															// request number in
+															// invoice class
 		InvoiceNumberfield.sendKeys(srnumber2);
 		InvoiceAmount.clear();
 		InvoiceAmount.sendKeys("0.00");
@@ -320,37 +365,34 @@ public class ServiceRequestDetail {
 
 	}
 
-
-
 	public void SPInvoiceWorkPerformed() throws InterruptedException {
-		
+
 		Editbtn0.click();
 		Thread.sleep(2000);
 		/*
-		 * if (isAlertPresent()) {Utilities.driver.switchTo().alert().accept(); }
+		 * if (isAlertPresent()) {Utilities.driver.switchTo().alert().accept();
+		 * }
 		 */
 		Updatebtn0.click();
 		Thread.sleep(2000);
 		NextStep1.click();
 
 	}
-	
-	@FindBy (id="frameAddWPorParts")
-	WebElement AddWorkPartsIframe;
-	@FindBy (id="txtSearch")
-	WebElement SearchFieldWorkPartsiframe;
-	@FindBy (id="btnSearch")
-	WebElement SearchBtnhWorkPartsiframe;
-	@FindBy (id="dialogNoResults")
-	WebElement NoResultsMessageiframe;
-	@FindBy (xpath="/html/body/div[3]/div[3]/div/button/span")
-	WebElement NoResultsMessageOK;
-	@FindBy (id="ctl00_ContentPlaceHolder1_btnCloseAddWPorParts")
-	WebElement CloseWindow;
-	
 
-	
-public void SPInvoiceWorkPerformedMSITravelandTruckChargeCheck() throws InterruptedException {
+	@FindBy(id = "frameAddWPorParts")
+	WebElement AddWorkPartsIframe;
+	@FindBy(id = "txtSearch")
+	WebElement SearchFieldWorkPartsiframe;
+	@FindBy(id = "btnSearch")
+	WebElement SearchBtnhWorkPartsiframe;
+	@FindBy(id = "dialogNoResults")
+	WebElement NoResultsMessageiframe;
+	@FindBy(xpath = "/html/body/div[3]/div[3]/div/button/span")
+	WebElement NoResultsMessageOK;
+	@FindBy(id = "ctl00_ContentPlaceHolder1_btnCloseAddWPorParts")
+	WebElement CloseWindow;
+
+	public void SPInvoiceWorkPerformedMSITravelandTruckChargeCheck() throws InterruptedException {
 		AddNewWorkPerformedbtn.click();
 		driver.switchTo().frame(AddWorkPartsIframe);
 		SearchFieldWorkPartsiframe.sendKeys("\"Truck Charge\"");
@@ -358,7 +400,8 @@ public void SPInvoiceWorkPerformedMSITravelandTruckChargeCheck() throws Interrup
 		Thread.sleep(2000);
 		Assert.assertTrue(NoResultsMessageiframe.isDisplayed(), "No Results Dialog Not Detected");
 		NoResultsMessageOK.click();
-		//Assert.assertTrue(Popup.getText().contains("No results found, please try different keywords"));
+		// Assert.assertTrue(Popup.getText().contains("No results found, please
+		// try different keywords"));
 		SearchFieldWorkPartsiframe.clear();
 		SearchFieldWorkPartsiframe.sendKeys("\"Travel Service Charge\"");
 		SearchBtnhWorkPartsiframe.click();
@@ -367,10 +410,9 @@ public void SPInvoiceWorkPerformedMSITravelandTruckChargeCheck() throws Interrup
 		NoResultsMessageOK.click();
 		driver.switchTo().defaultContent();
 		CloseWindow.click();
-		
 
 	}
-	
+
 	@FindBy(id = "ctl00_ContentPlaceHolder1_txtSubTotal")
 	WebElement LaborTotal;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_lblTaxS")
@@ -379,36 +421,39 @@ public void SPInvoiceWorkPerformedMSITravelandTruckChargeCheck() throws Interrup
 	WebElement LaborTaxTotal;
 	@FindBy(id = "ctl00_ContentPlaceHolder1_gridLabor_ctl02_txtRate")
 	WebElement RateSP;
-	//*[@id='ctl00_ContentPlaceHolder1_gridLabor']/tbody/tr[2]/td[@class='NumericCell'][1]
+	// *[@id='ctl00_ContentPlaceHolder1_gridLabor']/tbody/tr[2]/td[@class='NumericCell'][1]
 	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_gridLabor']/tbody/tr[2]/td[@class='NumericCell'][1]")
 	WebElement HoursSPInput;
-    String Taxvalue; 
-	public boolean PresenceofTaxamt(){
+	String Taxvalue;
+
+	public boolean PresenceofTaxamt() {
 		TaxAmt.isDisplayed();
 		return false;
-		
+
 	}
-	public boolean PresenceofTaxNA(){
+
+	public boolean PresenceofTaxNA() {
 		TaxAmt.isDisplayed();
 		TaxAmt.getText().contains("N/A");
 		return false;
-		
-	}
-	public boolean PresenceofTaxExempt(){
-		TaxExempt.isDisplayed();
-		
-		return false;
-		
+
 	}
 
-public void SPInvoiceLaboraPartsandSummary() throws InterruptedException {
+	public boolean PresenceofTaxExempt() {
+		TaxExempt.isDisplayed();
+
+		return false;
+
+	}
+
+	public void SPInvoiceLaboraPartsandSummary() throws InterruptedException {
 		EditbtnLabor.click();
 		Thread.sleep(2000);
 		HoursSP.clear();
 		HoursSP.sendKeys("1");
 		UpdatebtnLabor.click();
 		Thread.sleep(2000);
-		
+
 		double LaborHours = Double.parseDouble(HoursSPInput.getText());
 		System.out.println(LaborHours);
 		String LaborValue = RateSP.getAttribute("value");
@@ -416,118 +461,103 @@ public void SPInvoiceLaboraPartsandSummary() throws InterruptedException {
 		System.out.println(LaborValue1);
 		double LaborRate = Double.parseDouble(LaborValue1);
 		String SPTotalValue = LaborTotal.getAttribute("value");
-		String SPTotalValue1= SPTotalValue.replace("$", "");
+		String SPTotalValue1 = SPTotalValue.replace("$", "");
 		double SPTotal = Double.parseDouble(SPTotalValue1);
-		Assert.assertTrue(LaborHours*LaborRate==SPTotal, "Labor Total Mismatch");
-		if (PresenceofTaxamt()){
-        String Taxvalue = TaxAmt.getText();
+		Assert.assertTrue(LaborHours * LaborRate == SPTotal, "Labor Total Mismatch");
+		if (PresenceofTaxamt()) {
+			String Taxvalue = TaxAmt.getText();
+		} else if (PresenceofTaxExempt()) {
+			String Taxvalue = TaxExempt.getText();
 		}
-		else if (PresenceofTaxExempt()){
-		String Taxvalue = TaxExempt.getText();	
+		// Complicated ass tax check
+		if (PresenceofTaxNA()) {
+			String TaxRealValue = Taxvalue.replace("N/A", "0");
+			double Tax = Double.parseDouble(TaxRealValue);
+			String TotalLaborTax = LaborTaxTotal.getAttribute("value");
+			String TotalLaborTax1 = TotalLaborTax.replace("$", "");
+			double Total = Double.parseDouble(TotalLaborTax1);
+
+			Assert.assertTrue(SPTotal + Tax == Total, "Labor + Tax Mismatch");
+			System.out.println(SPTotal + Tax + "  Sum of Labor and Taxes ");
+			System.out.println(Total + "  MyFSN Calculation");
+		} else if (PresenceofTaxExempt()) {
+			String TaxRealValue = Taxvalue.replace("(Tax Exempt)", "0");
+			double Tax = Double.parseDouble(TaxRealValue);
+			String TotalLaborTax = LaborTaxTotal.getAttribute("value");
+			String TotalLaborTax1 = TotalLaborTax.replace("$", "");
+			double Total = Double.parseDouble(TotalLaborTax1);
+
+			Assert.assertTrue(SPTotal + Tax == Total, "Labor + Tax Mismatch");
+			System.out.println(SPTotal + Tax + "  Sum of Labor and Taxes ");
+			System.out.println(Total + "  MyFSN Calculation");
+		} else if (!PresenceofTaxNA() & !PresenceofTaxExempt()) {
+			// String TaxRealValue=Taxvalue.replace("N/A", "0");
+			double Tax = Double.parseDouble(Taxvalue);
+			String TotalLaborTax = LaborTaxTotal.getAttribute("value");
+			String TotalLaborTax1 = TotalLaborTax.replace("$", "");
+			double Total = Double.parseDouble(TotalLaborTax1);
+			Assert.assertTrue(SPTotal + Tax == Total, "Labor + Tax Mismatch");
 		}
-        //Complicated ass tax check 
-        if (PresenceofTaxNA()){
-        	String TaxRealValue=Taxvalue.replace("N/A", "0");
-        	double Tax= Double.parseDouble(TaxRealValue);
-        	String TotalLaborTax = LaborTaxTotal.getAttribute("value");
-        	String TotalLaborTax1= TotalLaborTax.replace("$", "");
-        	double Total = Double.parseDouble(TotalLaborTax1);
-        	
-        	
-        	Assert.assertTrue(SPTotal+Tax==Total, "Labor + Tax Mismatch");
-        	System.out.println(SPTotal+Tax +"  Sum of Labor and Taxes ");
-        	System.out.println( Total + "  MyFSN Calculation");
-        }
-        else if (PresenceofTaxExempt()){
-        	String TaxRealValue=Taxvalue.replace("(Tax Exempt)", "0");
-        	double Tax= Double.parseDouble(TaxRealValue);
-        	String TotalLaborTax = LaborTaxTotal.getAttribute("value");
-        	String TotalLaborTax1= TotalLaborTax.replace("$", "");
-        	double Total = Double.parseDouble(TotalLaborTax1);
-        	
-        	
-        	Assert.assertTrue(SPTotal+Tax==Total, "Labor + Tax Mismatch");
-        	System.out.println(SPTotal+Tax +"  Sum of Labor and Taxes ");
-        	System.out.println( Total + "  MyFSN Calculation");
-        }
-        else if (!PresenceofTaxNA()&!PresenceofTaxExempt()){
-        //String TaxRealValue=Taxvalue.replace("N/A", "0");
-        double Tax= Double.parseDouble(Taxvalue);
-        String TotalLaborTax = LaborTaxTotal.getAttribute("value");
-    	String TotalLaborTax1= TotalLaborTax.replace("$", "");
-    	double Total = Double.parseDouble(TotalLaborTax1);
-		Assert.assertTrue(SPTotal+Tax==Total, "Labor + Tax Mismatch");
-        }
-        
-        
+
 		NextStep1.click();
 		NextStep1.click();
 		AcceptCalculatedAmountSelection.click();
-		
-		
 
 	}
 
-@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_gridLabor']/tbody/tr[2]/td[@class='NumericCell'][1]")
-WebElement X;
+	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_gridLabor']/tbody/tr[2]/td[@class='NumericCell'][1]")
+	WebElement X;
 
-public void SPInvoiceLaboraPartsandSummaryMSI() throws InterruptedException {
-	EditbtnLabor.click();
-	Thread.sleep(2000);
-	HoursSP.clear();
-	HoursSP.sendKeys("1");
-	UpdatebtnLabor.click();
-	Thread.sleep(2000);
-/*	driver.switchTo().alert().accept();*/
-	double LaborHours = Double.parseDouble(HoursSPInput.getText());
-	System.out.println(LaborHours);
-	String LaborValue = RateSP.getAttribute("value");
-	String LaborValue1 = LaborValue.replace("$", "");
-	System.out.println(LaborValue1);
-	double LaborRate = Double.parseDouble(LaborValue1);
-	String SPTotalValue = LaborTotal.getAttribute("value");
-	String SPTotalValue1= SPTotalValue.replace("$", "");
-	double SPTotal = Double.parseDouble(SPTotalValue1);
-	Assert.assertTrue(LaborHours*LaborRate==SPTotal, "Labor Total Mismatch");
+	public void SPInvoiceLaboraPartsandSummaryMSI() throws InterruptedException {
+		EditbtnLabor.click();
+		Thread.sleep(2000);
+		HoursSP.clear();
+		HoursSP.sendKeys("1");
+		UpdatebtnLabor.click();
+		Thread.sleep(2000);
+		/* driver.switchTo().alert().accept(); */
+		double LaborHours = Double.parseDouble(HoursSPInput.getText());
+		System.out.println(LaborHours);
+		String LaborValue = RateSP.getAttribute("value");
+		String LaborValue1 = LaborValue.replace("$", "");
+		System.out.println(LaborValue1);
+		double LaborRate = Double.parseDouble(LaborValue1);
+		String SPTotalValue = LaborTotal.getAttribute("value");
+		String SPTotalValue1 = SPTotalValue.replace("$", "");
+		double SPTotal = Double.parseDouble(SPTotalValue1);
+		Assert.assertTrue(LaborHours * LaborRate == SPTotal, "Labor Total Mismatch");
 
-    
-    
-	NextStep1.click();
-	NextStep1.click();
-	AcceptCalculatedAmountSelection.click();
-	
-	
+		NextStep1.click();
+		NextStep1.click();
+		AcceptCalculatedAmountSelection.click();
 
-}
+	}
 
 	public void SPInvoiceAttachment() {
-    InvoiceAttachmenttbnSP.sendKeys("C:\\Users\\dmohamed\\Desktop\\testPDF.pdf");
-    NextStep1.click();
-    SubmitInvoicebtn.click();
+		InvoiceAttachmenttbnSP.sendKeys("C:\\Users\\dmohamed\\Desktop\\testPDF.pdf");
+		NextStep1.click();
+		SubmitInvoicebtn.click();
 	}
-	
-	//InvoiceConfirmation 
-	@FindBy(id= "ctl00_ContentPlaceHolder1_ucSummary_confMessage")
+
+	// InvoiceConfirmation
+	@FindBy(id = "ctl00_ContentPlaceHolder1_ucSummary_confMessage")
 	WebElement InvoiceConfirmationMessage;
-	@FindBy(id= "ctl00_ContentPlaceHolder1_ucSummary_lblSRNumber")
+	@FindBy(id = "ctl00_ContentPlaceHolder1_ucSummary_lblSRNumber")
 	WebElement SRNumberInvoiceConfirmation;
-	@FindBy(id= "ctl00_ContentPlaceHolder1_ucSummary_lblGrandTotal")
+	@FindBy(id = "ctl00_ContentPlaceHolder1_ucSummary_lblGrandTotal")
 	WebElement InvoiceTotalConfirmation;
-	
-	public String InvoiceConfirmation () throws InterruptedException{
-	Utilities.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	if (InvoiceConfirmationMessage.isDisplayed()) {
-	System.out.println("MyFSN SP invoice submission successful");	
+
+	public String InvoiceConfirmation() throws InterruptedException {
+		Utilities.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		if (InvoiceConfirmationMessage.isDisplayed()) {
+			System.out.println("MyFSN SP invoice submission successful");
+		} else {
+			Assert.fail("MyFSN SP invoice submission failed");
+		}
+		String Srnumber3 = SRNumberInvoiceConfirmation.getText();
+		System.out.println(Srnumber3);
+
+		return Srnumber3;
 	}
-	else {
-	Assert.fail("MyFSN SP invoice submission failed");
-	}
-	String Srnumber3 = SRNumberInvoiceConfirmation.getText();
-	System.out.println(Srnumber3);
-	
-	return Srnumber3; 
-	}
-	
-	
-	
+
 }

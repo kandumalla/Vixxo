@@ -9,6 +9,7 @@
 		<class name="fsntests.SiteUserSiteSelection_medium"></class>
 		<class name="fsntests.SitHistorysmoke_medium"></class>
 		<class name="fsntests.SrListNavigationTest_high"></class>
+		<class name="fsntests.Logintestsmoke_urgent"></class>
 		
 			
 		</classes>

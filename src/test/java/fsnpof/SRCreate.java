@@ -188,7 +188,7 @@ public class SRCreate {
 		Thread.sleep(2000);
 	}
 
-	@FindBy(xpath = "//*[contains(text(),'Test Site')]")
+	@FindBy(xpath = "//*[contains(text(),'(99999)')]")
 	WebElement TestSite;
 
 	public void SiteSelect() throws InterruptedException {
@@ -643,9 +643,8 @@ public class SRCreate {
 	public void ChemicalSpillAlertcheckReasonForCallSelect() throws InterruptedException {
 		Utilities.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Select reasondd = new Select(ReasonForCall);
-		wait.until(ExpectedConditions.elementToBeClickable(ReasonForCallChemicalSpill));
-		// reasondd.selectByVisibleText("Chemical Spill");
-		ReasonForCallChemicalSpill.click();
+		Thread.sleep(3000);
+		reasondd.selectByVisibleText("Chemical Spill");
 		
 
 

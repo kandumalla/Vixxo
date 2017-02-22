@@ -283,7 +283,7 @@ public class ProdSmokteTests {
 
 	@AfterMethod
 	public void afterTest() throws InterruptedException {
-	TopMenu.Logout();
+	TopMenu.Logoutcust();
 	
 	
 	}

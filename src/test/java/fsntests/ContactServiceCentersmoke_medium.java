@@ -92,7 +92,7 @@ public class ContactServiceCentersmoke_medium {
 	public void afterTest() throws InterruptedException {
 	
 		
-		 TopMenu.Logout();
+		 TopMenu.Logoutcust();
 
 	}
 

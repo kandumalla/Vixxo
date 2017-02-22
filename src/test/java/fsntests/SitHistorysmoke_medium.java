@@ -78,7 +78,7 @@ public class SitHistorysmoke_medium {
 
 	@AfterMethod
 	public void afterTest() throws InterruptedException {
-	TopMenu.Logout();
+	TopMenu.Logoutcust();
 	
 	
 	}

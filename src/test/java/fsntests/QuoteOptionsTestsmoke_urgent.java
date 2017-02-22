@@ -76,7 +76,7 @@ public class QuoteOptionsTestsmoke_urgent {
 
 	@AfterMethod
 	public void afterTest() throws InterruptedException {
-		TopMenu.Logout();
+		TopMenu.Logoutcust();
 
 	}
 
