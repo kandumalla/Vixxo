@@ -79,7 +79,7 @@ public class SiteUserSiteSelection_medium {
 
 	@AfterMethod
 	public void afterTest() throws InterruptedException {
-	TopMenu.Logoutcust();
+	TopMenu.LogoutSiteCustomer();
 	
 	
 	}
