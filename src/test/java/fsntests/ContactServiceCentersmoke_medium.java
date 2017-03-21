@@ -34,7 +34,7 @@ public class ContactServiceCentersmoke_medium {
 
 	@BeforeSuite 
 	public void beforeSuite() {
-		Utilities.webdrive();
+		//Utilities.webdrive();
 		// setting global implicit wait
 		PageFactory.initElements(new AjaxElementLocatorFactory(Utilities.driver, 60), this);
 		Utilities.driver.get(Utilities.MYFSNPRODURL);

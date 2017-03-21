@@ -23,9 +23,9 @@ public class TopMenusPOF {
 	WebElement Help;
 	@FindBy(xpath="//*[contains(text(),'Logout')]")
 	WebElement Logoutbtnservicecenter;
-	@FindBy(id="ctl00_Menu1_16")
+	@FindBy(xpath="//*[text()='Logout']")
 	WebElement Logoutbtnclient;
-	@FindBy(id="ctl00_Menu1_14")
+	@FindBy(xpath="//*[text()='Logout']")
 	WebElement Logoutbtnsiteclient;
 
 public void NavigateHome (){
@@ -42,7 +42,7 @@ wait.until(ExpectedConditions.elementToBeClickable(Logoutbtnservicecenter));
 Logoutbtnservicecenter.click();
 }
 
-public void LogoutSiteCustomer(){
+public void a(){
 wait.until(ExpectedConditions.elementToBeClickable(Logoutbtnsiteclient));
 Logoutbtnsiteclient.click();
 }
