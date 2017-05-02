@@ -22,7 +22,8 @@ import java.util.concurrent.TimeUnit;
 public class SRCreate {
 	String RandomString = UUID.randomUUID().toString();
 	WebDriverWait wait = new WebDriverWait(Utilities.driver, 60);
-
+	String Customer = "PETM-US";
+	String Site = "0047";
 	// Home Page
 	@FindBy(id = "ctl00_Menu1_1")
 	WebElement Managesitestab;
@@ -192,20 +193,20 @@ public class SRCreate {
 	WebElement TestSite;
 
 	public void SiteSelect() throws InterruptedException {
-		try {wait.until(ExpectedConditions.elementToBeClickable(SelectSitebox));
-		SelectSitebox.sendKeys("9999");}
-		catch (StaleElementReferenceException e2){
-		Utilities.driver.navigate().refresh();
-		wait.until(ExpectedConditions.elementToBeClickable(SelectSitebox));
-		SelectSitebox.sendKeys("9999");
-			
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(SelectSitebox));
+			SelectSitebox.sendKeys("9999");
+		} catch (StaleElementReferenceException e2) {
+			Utilities.driver.navigate().refresh();
+			wait.until(ExpectedConditions.elementToBeClickable(SelectSitebox));
+			SelectSitebox.sendKeys("9999");
+
 		}
-		
-		try{
-		wait.until(ExpectedConditions.elementToBeClickable(TestSite));
-		TestSite.click();
-		}
-		catch (TimeoutException e){
+
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(TestSite));
+			TestSite.click();
+		} catch (TimeoutException e) {
 			Utilities.driver.navigate().refresh();
 			SelectSitebox.sendKeys("9999");
 			wait.until(ExpectedConditions.elementToBeClickable(TestSite));
@@ -261,7 +262,7 @@ public class SRCreate {
 		Utilities.driver.close();
 
 	}
-	
+
 	@FindBy(xpath = "//*[contains(text(),'Core Store')]")
 	WebElement AreaCoreStore;
 
@@ -274,23 +275,27 @@ public class SRCreate {
 
 	@FindBy(xpath = "//*[contains(text(),'Exterior')]")
 	WebElement AreaExterior;
+
 	public void SelectAreaMSI01() throws InterruptedException {
 		Select siteareadd = new Select(SiteAreaDropDown);
 		wait.until(ExpectedConditions.textToBePresentInElement(AreaExterior, "Exterior"));
 		siteareadd.selectByVisibleText("Exterior");
 
 	}
+
 	@FindBy(xpath = "//*[contains(text(),'Sales floor')]")
 	WebElement SubAreaSalesFloor;
+
 	public void SelectSubArea() throws InterruptedException {
 		Select subsiteareadd = new Select(SubSiteAreaDropDown);
 		wait.until(ExpectedConditions.textToBePresentInElement(SubAreaSalesFloor, "Sales floor"));
 		subsiteareadd.selectByVisibleText("Sales floor");
 
 	}
+
 	@FindBy(xpath = "//*[contains(text(),'Front')]")
 	WebElement SubAreaFront;
-	
+
 	public void SelectSubAreaMSI01() throws InterruptedException {
 		Select subsiteareadd = new Select(SubSiteAreaDropDown);
 		wait.until(ExpectedConditions.textToBePresentInElement(SubAreaFront, "Front"));
@@ -298,20 +303,24 @@ public class SRCreate {
 		Thread.sleep(2000);
 
 	}
-	@FindBy(xpath = "//*[contains(text(),'Windows')]")
-	WebElement LOSWindows;
+
+	@FindBy(xpath = "//*[(text()='Scales')]")
+	WebElement LOSScales;
+
 	public void SelectTypeofService() throws InterruptedException {
 		Select typeofservicedd = new Select(TypeofService);
-		wait.until(ExpectedConditions.textToBePresentInElement(LOSWindows, "Windows"));
-		typeofservicedd.selectByVisibleText("Windows");
+		wait.until(ExpectedConditions.textToBePresentInElement(LOSScales, "Scales"));
+		typeofservicedd.selectByVisibleText("Scales");
 
 	}
-	@FindBy(xpath = "//*[contains(text(),'Leaking')]")
-	WebElement LeakingReasonforcall;
+
+	@FindBy(xpath = "//*[contains(text(),'Damaged/Not Working')]")
+	WebElement DamagedReasonforcall;
+
 	public void SelectReasonForCall() throws InterruptedException {
 		Select reasondd = new Select(ReasonForCall);
-		wait.until(ExpectedConditions.textToBePresentInElement(LeakingReasonforcall, "Leaking"));
-		reasondd.selectByVisibleText("Leaking");
+		wait.until(ExpectedConditions.textToBePresentInElement(DamagedReasonforcall, "Damaged/Not Working"));
+		reasondd.selectByVisibleText("Damaged/Not Working");
 
 	}
 
@@ -385,6 +394,16 @@ public class SRCreate {
 
 	}
 
+	@FindBy(xpath = "//*[@id='divLOSShortdescContent']/div/input")
+	WebElement SRLOSAlertOK;
+
+	public void ClearSrLOSAlert() {
+		if (SRLOSAlertOK != null) {
+			SRLOSAlertOK.click();
+		}
+
+	}
+
 	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSLOS']/option[2]")
 	WebElement TypeofServiceSelection;
 	@FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_ddlSshortDesc']/option[2]")
@@ -411,7 +430,7 @@ public class SRCreate {
 	public void SRDetailCheckClient() {
 		wait.until(ExpectedConditions.elementToBeClickable(SRConfirmationLink));
 		wait.until(ExpectedConditions.visibilityOf(SRNumberMessage));
-
+		ClearSrLOSAlert();
 		SRConfirmationLink.click();
 		String urlsrconfirmation = Utilities.driver.getCurrentUrl();
 		wait.until(ExpectedConditions.visibilityOf(SRDetailPageTitle));
@@ -451,6 +470,13 @@ public class SRCreate {
 
 		else {
 			Assert.fail("Issue with SR create, requires investigation");
+		}
+
+	}
+
+	public void LOSAlertCheck() {
+		if (SRNotificationPopup != null) {
+			SRNotificationPopup.click();
 		}
 
 	}
@@ -602,33 +628,36 @@ public class SRCreate {
 		ExpectedConditions.alertIsPresent();
 
 	}
-	
-	public void LOSHazardousMaterialSelect () throws InterruptedException{
+
+	public void LOSHazardousMaterialSelect() throws InterruptedException {
 		Utilities.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Select typeofservicedd = new Select(TypeofService);
 		Thread.sleep(3000);
 		typeofservicedd.selectByVisibleText("Hazardous Material Handling");
-		
+
 	}
-	
+
 	public void ReasonForCallSelectBioHazard() throws InterruptedException {
 		Utilities.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Select reasondd = new Select(ReasonForCall);
 		Thread.sleep(3000);
 		reasondd.selectByVisibleText("Bio Hazard Clean-Up");
-		
 
 	}
-	@FindBy (id="divLOSShortdescNotifier")
+
+	@FindBy(id = "divLOSShortdescNotifier")
 	WebElement SDAlert;
-	@FindBy (xpath="//*[@id='divLOSShortdescNotifier']//following::input[1]")
+	@FindBy(xpath = "//*[@id='divLOSShortdescNotifier']//following::input[1]")
 	WebElement SDAlertClear;
-	public void HazardousMaterialAlertCheck(){
+
+	public void HazardousMaterialAlertCheck() {
 		wait.until(ExpectedConditions.visibilityOf(SDAlert));
-		Assert.assertTrue(SDAlert.getText().contains("Store to contact your Loss Prevention Safety Manager to report any Hazardous Material Handling issues or concerns."), "Unexpected Alert, =" + SDAlert.getText());
+		Assert.assertTrue(
+				SDAlert.getText().contains(
+						"Store to contact your Loss Prevention Safety Manager to report any Hazardous Material Handling issues or concerns."),
+				"Unexpected Alert, =" + SDAlert.getText());
 		SDAlertClear.click();
 	}
-
 
 	@FindBy(xpath = "//*[contains(text(),'Core Store')]")
 	WebElement SiteAreaCoreStore;
@@ -645,8 +674,6 @@ public class SRCreate {
 		Select reasondd = new Select(ReasonForCall);
 		Thread.sleep(3000);
 		reasondd.selectByVisibleText("Chemical Spill");
-		
-
 
 	}
 
@@ -655,7 +682,6 @@ public class SRCreate {
 		Select reasondd = new Select(ReasonForCall);
 		Thread.sleep(3000);
 		reasondd.selectByVisibleText("Chemical Disposal");
-	
 
 	}
 

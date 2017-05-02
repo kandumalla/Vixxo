@@ -183,7 +183,7 @@ public class SrListNavigationTest_high {
 	
 	}
 //**************Pending Bug fix*****************
-	@Test(enabled= false)
+	@Test(enabled= true)
 	public void CompletedSRsBilledTest() {
 		System.out.println("Billed SR list is currently defective pending fix 2.20.17");
 		LoginPage.ProdLoginEbluth();
