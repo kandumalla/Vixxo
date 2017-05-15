@@ -134,16 +134,16 @@ public class SRCreatesmoke_urgent {
 	
 	}
 
-	/*@AfterMethod
+	@AfterMethod
 	public void afterTest() throws InterruptedException {
 	TopMenu.Logoutcust();
 	
 	
 	}
 
-	@AfterSuite
+	/*@AfterSuite
 	public void afterSuite() {
 	Utilities.driver.quit();
-	}*/
-
+	}
+*/
 }

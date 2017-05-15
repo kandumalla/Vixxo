@@ -183,16 +183,16 @@ public class SrListNavigationTest_high {
 	
 	}
 //**************Pending Bug fix*****************
-	@Test(enabled= true)
+	@Test(enabled= false)
 	public void CompletedSRsBilledTest() {
 		System.out.println("Billed SR list is currently defective pending fix 2.20.17");
-		LoginPage.ProdLoginEbluth();
+		/*LoginPage.ProdLoginEbluth();
 		LoginPage.clicksubmit();
 		LoginPage.USclick();
 		RequestsataGlance.completedrequestsclick();
 		RequestsataGlance.billedclick();
 		RequestsataGlance.ClearBilledCapexFrame();
-		RequestsataGlance.billedassertion();
+		RequestsataGlance.billedassertion();*/
 		
 //***********************************************
 
