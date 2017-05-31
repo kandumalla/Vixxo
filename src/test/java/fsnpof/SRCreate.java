@@ -80,6 +80,7 @@ public class SRCreate {
 	WebElement SRSubmissionTimeOutMessage;
 	@FindBy(xpath = "//*[@id='divLOSShortdescContent']/div/input")
 	WebElement SRNotificationPopup;
+	
 	@FindBy(id = "ctl00_ContentPlaceHolder1_SRNumberLabel")
 	public WebElement SRNumber;
 	@FindBy(id = "ctl00_lblPageTitle")
@@ -434,7 +435,7 @@ public class SRCreate {
 		wait.until(ExpectedConditions.elementToBeClickable(SRConfirmationLink));
 		wait.until(ExpectedConditions.visibilityOf(SRNumberMessage));
 	    Thread.sleep(3000);
-		//ClearSrLOSAlert();
+		ClearSrLOSAlert();
 		SRConfirmationLink.click();
 		String urlsrconfirmation = Utilities.driver.getCurrentUrl();
 		wait.until(ExpectedConditions.visibilityOf(SRDetailPageTitle));
