@@ -15,6 +15,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.python.modules.thread.thread;
 import org.testng.Assert;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -310,6 +311,7 @@ public class SRCreate {
 	public void SelectTypeofService() throws InterruptedException {
 		Select typeofservicedd = new Select(TypeofService);
 		wait.until(ExpectedConditions.textToBePresentInElement(LOSScales, "Scales"));
+		Thread.sleep(2500);
 		typeofservicedd.selectByVisibleText("Scales");
 
 	}
@@ -319,6 +321,7 @@ public class SRCreate {
 
 	public void SelectReasonForCall() throws InterruptedException {
 		Select reasondd = new Select(ReasonForCall);
+		Thread.sleep(2500);
 		wait.until(ExpectedConditions.textToBePresentInElement(DamagedReasonforcall, "Damaged/Not Working"));
 		reasondd.selectByVisibleText("Damaged/Not Working");
 
@@ -329,8 +332,8 @@ public class SRCreate {
 
 	public void SearchReasonForCall() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(ReasonForCallSearchField));
-		ReasonForCallSearchField.sendKeys("Automatic");
-		Thread.sleep(2000);
+		ReasonForCallSearchField.sendKeys("Alarm Contact/Senso");
+		Thread.sleep(4000);
 		// wait.until(ExpectedConditions.elementToBeClickable(AutoSearchResult));
 		ReasonForCallSearchField.sendKeys(Keys.DOWN, Keys.ENTER);
 	}
@@ -427,10 +430,11 @@ public class SRCreate {
 	@FindBy(id = "ctl00_lblPageTitle")
 	WebElement SRDetailPageTitle;
 
-	public void SRDetailCheckClient() {
+	public void SRDetailCheckClient() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(SRConfirmationLink));
 		wait.until(ExpectedConditions.visibilityOf(SRNumberMessage));
-		ClearSrLOSAlert();
+	    Thread.sleep(3000);
+		//ClearSrLOSAlert();
 		SRConfirmationLink.click();
 		String urlsrconfirmation = Utilities.driver.getCurrentUrl();
 		wait.until(ExpectedConditions.visibilityOf(SRDetailPageTitle));
