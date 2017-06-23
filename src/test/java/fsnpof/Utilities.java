@@ -17,10 +17,10 @@ public class Utilities {
 	public static WebDriver driver;
 	public static void webdrive (){
 		//Following system property points to the chromedriver location where jenkins is hosted 
-		//System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
 		
 		//Following system property points to local instance of chrome driver 
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\dmohamed\\Documents\\Testing Environment\\Testing Environment\\Web Drivers\\chromedriver_win32 (1)\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver","C:\\Users\\dmohamed\\Documents\\Testing Environment\\Testing Environment\\Web Drivers\\chromedriver_win32 (1)\\chromedriver.exe");
 		WebDriver chromedriver = new ChromeDriver();
 		driver= chromedriver;
 		
