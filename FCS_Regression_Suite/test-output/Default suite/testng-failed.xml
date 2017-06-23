@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="fcstestingsuite.fsnrgn.SRsatAGlance">
+        <methods>
+          <include name="CompletedRFPsCancelledStatusTest"/>
+          <include name="CompletedSRsToBeBilledTest"/>
+          <include name="CompletedSRsBilledTest"/>
+          <include name="QuotesUnderReviewTest"/>
+          <include name="PMStatusTest"/>
+          <include name="RFPsSubmittedStatusTest"/>
+          <include name="CompletedSRsOtherTest"/>
+          <include name="QuotesNeedingApprovalTest"/>
+          <include name="CompletedRFPsApprovedStatusTest"/>
+          <include name="beforeSuite"/>
+          <include name="RFPsResponseReceivedStatusTest"/>
+          <include name="RFPsNeedsApprovalStatusTest"/>
+          <include name="afterSuite"/>
+          <include name="beforeTest"/>
+          <include name="PartsonOrderTest"/>
+          <include name="RFPsCreatedStatusTest"/>
+        </methods>
+      </class> <!-- fcstestingsuite.fsnrgn.SRsatAGlance -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

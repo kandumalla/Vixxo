@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Command line suite]">
+  <test name="Command line test(failed)">
+    <classes>
+      <class name="fcstestingsuite.fsnrgn.LoginTest">
+        <methods>
+          <include name="PRPageTest"/>
+          <include name="CAPageTest"/>
+          <include name="USPageTest"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- fcstestingsuite.fsnrgn.LoginTest -->
+      <class name="fcstestingsuite.fsnrgn.SiteHistoryTest">
+        <methods>
+          <include name="EmailValidation"/>
+          <include name="SiteHistoryNavigationTest"/>
+          <include name="SRDetailValidation"/>
+        </methods>
+      </class> <!-- fcstestingsuite.fsnrgn.SiteHistoryTest -->
+      <class name="fcstestingsuite.fsnrgn.QuotesEstimatesTest">
+        <methods>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- fcstestingsuite.fsnrgn.QuotesEstimatesTest -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [Command line suite] -->

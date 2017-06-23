@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="93150" started-at="2016-08-04T12:50:39Z" finished-at="2016-08-04T12:52:12Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="93150" started-at="2016-08-04T12:50:39Z" finished-at="2016-08-04T12:52:12Z">
+      <class name="fcstestingsuite.fsnrgn.LoginTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:fcstestingsuite.fsnrgn.LoginTest@3b81a1bc]" name="beforeTest" is-config="true" duration-ms="7743" started-at="2016-08-04T08:50:39Z" finished-at="2016-08-04T08:50:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:fcstestingsuite.fsnrgn.QuotesEstimatesTest@4cb2c100]" name="beforeTest" is-config="true" duration-ms="17196" started-at="2016-08-04T08:50:46Z" finished-at="2016-08-04T08:51:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:fcstestingsuite.fsnrgn.SiteHistoryTest@1e67b872]" name="beforeTest" is-config="true" duration-ms="15148" started-at="2016-08-04T08:51:03Z" finished-at="2016-08-04T08:51:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="USPageTest()[pri:0, instance:fcstestingsuite.fsnrgn.LoginTest@3b81a1bc]" name="USPageTest" duration-ms="9588" started-at="2016-08-04T08:51:19Z" finished-at="2016-08-04T08:51:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- USPageTest -->
+        <test-method status="PASS" signature="aftermethod()[pri:0, instance:fcstestingsuite.fsnrgn.LoginTest@3b81a1bc]" name="aftermethod" is-config="true" duration-ms="527" started-at="2016-08-04T08:51:28Z" finished-at="2016-08-04T08:51:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftermethod -->
+        <test-method status="PASS" signature="CAPageTest()[pri:0, instance:fcstestingsuite.fsnrgn.LoginTest@3b81a1bc]" name="CAPageTest" duration-ms="7144" started-at="2016-08-04T08:51:40Z" finished-at="2016-08-04T08:51:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CAPageTest -->
+        <test-method status="PASS" signature="aftermethod()[pri:0, instance:fcstestingsuite.fsnrgn.LoginTest@3b81a1bc]" name="aftermethod" is-config="true" duration-ms="565" started-at="2016-08-04T08:51:48Z" finished-at="2016-08-04T08:51:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftermethod -->
+        <test-method status="PASS" signature="PRPageTest()[pri:0, instance:fcstestingsuite.fsnrgn.LoginTest@3b81a1bc]" name="PRPageTest" duration-ms="7030" started-at="2016-08-04T08:51:57Z" finished-at="2016-08-04T08:52:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PRPageTest -->
+        <test-method status="PASS" signature="aftermethod()[pri:0, instance:fcstestingsuite.fsnrgn.LoginTest@3b81a1bc]" name="aftermethod" is-config="true" duration-ms="561" started-at="2016-08-04T08:52:04Z" finished-at="2016-08-04T08:52:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftermethod -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:fcstestingsuite.fsnrgn.LoginTest@3b81a1bc]" name="afterTest" is-config="true" duration-ms="764" started-at="2016-08-04T08:52:11Z" finished-at="2016-08-04T08:52:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:fcstestingsuite.fsnrgn.QuotesEstimatesTest@4cb2c100]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-08-04T08:52:12Z" finished-at="2016-08-04T08:52:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:fcstestingsuite.fsnrgn.SiteHistoryTest@1e67b872]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-08-04T08:52:12Z" finished-at="2016-08-04T08:52:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- fcstestingsuite.fsnrgn.LoginTest -->
+      <class name="fcstestingsuite.fsnrgn.SiteHistoryTest">
+        <test-method status="PASS" signature="SiteHistoryNavigationTest()[pri:0, instance:fcstestingsuite.fsnrgn.SiteHistoryTest@1e67b872]" name="SiteHistoryNavigationTest" duration-ms="11700" started-at="2016-08-04T08:51:29Z" finished-at="2016-08-04T08:51:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SiteHistoryNavigationTest -->
+        <test-method status="PASS" signature="SRDetailValidation()[pri:0, instance:fcstestingsuite.fsnrgn.SiteHistoryTest@1e67b872]" name="SRDetailValidation" duration-ms="8903" started-at="2016-08-04T08:51:48Z" finished-at="2016-08-04T08:51:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SRDetailValidation -->
+        <test-method status="PASS" signature="EmailValidation()[pri:0, instance:fcstestingsuite.fsnrgn.SiteHistoryTest@1e67b872]" name="EmailValidation" duration-ms="6271" started-at="2016-08-04T08:52:05Z" finished-at="2016-08-04T08:52:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EmailValidation -->
+      </class> <!-- fcstestingsuite.fsnrgn.SiteHistoryTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

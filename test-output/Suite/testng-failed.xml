@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="fsntests.QuoteOptionsTestsmoke_urgent">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- fsntests.QuoteOptionsTestsmoke_urgent -->
+      <class name="fsntests.SrListNavigationTest_high">
+        <methods>
+          <include name="beforeSuite"/>
+          <include name="QuotesNeedingApprovalTest"/>
+          <include name="afterTest"/>
+          <include name="WebDocumentsInTransitTest"/>
+          <include name="CompletedSRsOtherTest"/>
+          <include name="OnsiteTest"/>
+          <include name="AdditionalworkTest"/>
+          <include name="ConfirmedETATest"/>
+          <include name="QuotesUnderReviewTest"/>
+          <include name="beforeTest"/>
+          <include name="afterSuite"/>
+          <include name="AwaitingETAtest"/>
+          <include name="CompletedSRsToBeBilledTest"/>
+          <include name="PartsonOrderTest"/>
+          <include name="PriorityStoreContactTest"/>
+          <include name="ProblemETATest"/>
+        </methods>
+      </class> <!-- fsntests.SrListNavigationTest_high -->
+      <class name="fsntests.Logintestsmoke_urgent">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- fsntests.Logintestsmoke_urgent -->
+      <class name="fsntests.SRCreatesmoke_urgent">
+        <methods>
+          <include name="ConfirmCorporateSRCreate_urgent"/>
+          <include name="beforeSuite"/>
+          <include name="BioHazardAlertTest_High"/>
+          <include name="ChemicalDisposalAlertTest_High"/>
+          <include name="beforeTest"/>
+          <include name="ChemicalSpillAlertTest_High"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- fsntests.SRCreatesmoke_urgent -->
+      <class name="fsntests.SitHistorysmoke_medium">
+        <methods>
+          <include name="SiteHistoryNavigationTest"/>
+          <include name="beforeSuite"/>
+          <include name="beforeTest"/>
+          <include name="afterSuite"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- fsntests.SitHistorysmoke_medium -->
+      <class name="fsntests.ContactServiceCentersmoke_medium">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeSuite"/>
+        </methods>
+      </class> <!-- fsntests.ContactServiceCentersmoke_medium -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

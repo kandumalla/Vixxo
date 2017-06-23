@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="93982" started-at="2017-06-21T16:52:50Z" finished-at="2017-06-21T16:54:24Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="93982" started-at="2017-06-21T16:52:50Z" finished-at="2017-06-21T16:54:24Z">
+      <class name="fsntests.SRCreatesmoke_urgent">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="beforeSuite" is-config="true" duration-ms="5428" started-at="2017-06-21T12:52:50Z" finished-at="2017-06-21T12:52:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="beforeTest" is-config="true" duration-ms="581" started-at="2017-06-21T12:52:55Z" finished-at="2017-06-21T12:52:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="ConfirmCorporateSRCreate_urgent()[pri:1, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="ConfirmCorporateSRCreate_urgent" duration-ms="29986" started-at="2017-06-21T12:52:56Z" finished-at="2017-06-21T12:53:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ConfirmCorporateSRCreate_urgent -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="afterTest" is-config="true" duration-ms="889" started-at="2017-06-21T12:53:26Z" finished-at="2017-06-21T12:53:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="beforeTest" is-config="true" duration-ms="574" started-at="2017-06-21T12:53:27Z" finished-at="2017-06-21T12:53:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="BioHazardAlertTest_High()[pri:2, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="BioHazardAlertTest_High" duration-ms="18033" started-at="2017-06-21T12:53:27Z" finished-at="2017-06-21T12:53:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BioHazardAlertTest_High -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="afterTest" is-config="true" duration-ms="702" started-at="2017-06-21T12:53:45Z" finished-at="2017-06-21T12:53:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="beforeTest" is-config="true" duration-ms="391" started-at="2017-06-21T12:53:46Z" finished-at="2017-06-21T12:53:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="ChemicalSpillAlertTest_High()[pri:3, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="ChemicalSpillAlertTest_High" duration-ms="17628" started-at="2017-06-21T12:53:46Z" finished-at="2017-06-21T12:54:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ChemicalSpillAlertTest_High -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="afterTest" is-config="true" duration-ms="628" started-at="2017-06-21T12:54:04Z" finished-at="2017-06-21T12:54:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="beforeTest" is-config="true" duration-ms="700" started-at="2017-06-21T12:54:05Z" finished-at="2017-06-21T12:54:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="ChemicalDisposalAlertTest_High()[pri:4, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="ChemicalDisposalAlertTest_High" duration-ms="17768" started-at="2017-06-21T12:54:05Z" finished-at="2017-06-21T12:54:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ChemicalDisposalAlertTest_High -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:fsntests.SRCreatesmoke_urgent@14bf9759]" name="afterTest" is-config="true" duration-ms="656" started-at="2017-06-21T12:54:23Z" finished-at="2017-06-21T12:54:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- fsntests.SRCreatesmoke_urgent -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
