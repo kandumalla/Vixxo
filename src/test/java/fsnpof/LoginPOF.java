@@ -10,9 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 // URL = http://www.ourfsn.com/myfsn/
 
-public class LoginPOF {
+public class  LoginPOF {
 
 	WebDriverWait wait = new WebDriverWait(Utilities.driver, 60);
+	
 
 	// By customerlogin= By.id("ctl00_ContentPlaceHolder1_tbxUname");
 	// By customerpassword= By.id("ctl00_ContentPlaceHolder1_tbxPword");

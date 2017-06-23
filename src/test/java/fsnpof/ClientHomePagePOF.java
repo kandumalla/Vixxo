@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 //id="ctl00_ContentPlaceHolder1_lblCallStatus"
@@ -317,8 +318,9 @@ Assert.assertTrue(HomePageTitle.getText().contains("Welcome"), "Expected {Page T
 		Other.click();
 
 	}
-
+	WebDriverWait wait = new WebDriverWait(Utilities.driver, 60);
 	public void Otherassertion() {
+		wait.until(ExpectedConditions.visibilityOf(CallStatus));
 		Assert.assertTrue(CallStatus.getText().contains("Completed (Other)"),
 				"Incorrect Page, SR list call status does not match status selected ");
 

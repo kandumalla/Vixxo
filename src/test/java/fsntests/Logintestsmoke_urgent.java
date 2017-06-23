@@ -14,7 +14,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 
 public class Logintestsmoke_urgent {
-	WebDriver driver;
+	
 	LoginPOF LoginPage;
 	SRCreate SRCreatePage;
 	ServiceRequestDetail Invoicing;
@@ -30,9 +30,9 @@ public class Logintestsmoke_urgent {
 
 	@BeforeTest
 	public void beforeSuite() {
-		//Utilities.webdrive();
+		Utilities.webdrive();
 		// setting global implicit wait
-		PageFactory.initElements(new AjaxElementLocatorFactory(Utilities.driver, 60), this);
+		PageFactory.initElements(Utilities.driver, this);
 		Utilities.driver.get(Utilities.MYFSNPRODURL);
 		// initiating elements in page factory
 		SRCreatePage = PageFactory.initElements(Utilities.driver, SRCreate.class);

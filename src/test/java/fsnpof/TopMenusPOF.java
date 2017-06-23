@@ -31,7 +31,7 @@ public class TopMenusPOF {
 public void NavigateHome (){
 Home.click();
 }
-
+ 
 public void Logoutcust(){
 wait.until(ExpectedConditions.elementToBeClickable(Logoutbtnclient));
 Logoutbtnclient.click();

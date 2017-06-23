@@ -99,9 +99,10 @@ public class SiteHistoryPOF {
 		
 
 	}
-	WebDriverWait wait = new WebDriverWait(Utilities.driver,60);
+	
 	
 	public void ContactPageCheck(){
+	WebDriverWait wait = new WebDriverWait(Utilities.driver, 60);
 	wait.until(ExpectedConditions.elementToBeClickable(Emailfield));
 	wait.until(ExpectedConditions.elementToBeClickable(MessageField));
 	ExpectedConditions.elementToBeClickable(Emailfield);
