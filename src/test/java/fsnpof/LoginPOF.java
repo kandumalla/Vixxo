@@ -74,7 +74,7 @@ public class  LoginPOF {
 
 	}
 
-	// Send user name in textbox
+	// Send user name Laxman in textbox
 	public void sendUserName(String strUsername) {
 		String PetmUser = "ebluth";
 		login.sendKeys(PetmUser);
